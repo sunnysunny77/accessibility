@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessibility Forms</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/forms.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Accessibility<span>:</span> Forms</h1>
+      <img
+        src="./images/header.png"
+        alt="Accessible Entry Sign"
+        width="125"
+        height="125"
+      />
+    </header>
+    <a id="skip" href="#main" accesskey="S"> Skip navigation </a>
+    <nav>
+      <ul>
+        <li><a href="./index.html" accesskey="1"> Home </a></li>
+        <li><a href="./about.html" accesskey="2"> About </a></li>
+        <li><a href="./media.html" accesskey="3"> Media </a></li>
+        <li><a href="./gallery.html" accesskey="4"> Gallery </a></li>
+        <li><a href="./forms.html" accesskey="5"> Forms </a></li>
+        <li><a href="./resources.html" accesskey="6"> Resources </a></li>
+      </ul>
+    </nav>
+    <main id="main">
+      <form id="form" method="post">
+        <h2>Contact form</h2>
+
+        <fieldset>
+          <legend>Contact Preference</legend>
+
+          <label for="contactpreferencephone"> Phone </label>
+          <input
+            id="contactpreferencephone"
+            type="radio"
+            name="contactpreference"
+            value="phone"
+          />
+
+          <label for="contactpreferenceemail"> Email </label>
+          <input
+            id="contactpreferenceemail"
+            type="radio"
+            name="contactpreference"
+            value="email"
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend>Details</legend>
+
+          <label for="name"> Name: </label>
+          <input id="name" type="text" name="name" />
+
+          <label for="email"> Email: </label>
+          <input id="email" type="email" name="email" />
+
+          <label for="phone"> Phone number: </label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            maxlength="11"
+            value=""
+            pattern="[0-9]+"
+          />
+
+          <label for="message"> Message: </label>
+          <textarea id="message" name="message"></textarea>
+        </fieldset>
+
+        <p id="sent" style="display: none; text-align: center"></p>
+        <input
+          id="sub"
+          style="display: block"
+          type="submit"
+          value="Send Request"
+        />
+      </form>
+    </main>
+    <footer>
+      <img
+        src="./images/footer.png"
+        alt="Human Being Icon"
+        width="75"
+        height="75"
+      />
+      <ul>
+        <li><a href="./index.html" accesskey="1"> Home </a></li>
+        <li><a href="./about.html" accesskey="2"> About </a></li>
+        <li><a href="./media.html" accesskey="3"> Media </a></li>
+        <li><a href="./gallery.html" accesskey="4"> Gallery </a></li>
+        <li><a href="./forms.html" accesskey="5"> Forms </a></li>
+        <li><a href="./resources.html" accesskey="6"> Resources </a></li>
+      </ul>
+    </footer>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/forms.js"></script>
+  </body>
+</html>

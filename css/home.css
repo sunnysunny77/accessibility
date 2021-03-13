@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* css */
+
+#aims {
+  background-color: rgba(192, 192, 192, 0.25);
+  padding: 2.5% 7.55%;
+  border-radius: 10px;
+  width: 75%;
+  margin: 5% auto;
+}
+
+main ul,
+main ol {
+  padding: unset;
+}
+
+main li {
+  padding: 5px;
+}
+
+main ul li ol li ul li {
+  color: black;
+  list-style-type: circle;
+}
+
+article span {
+  display: block;
+  text-align: center;
+}

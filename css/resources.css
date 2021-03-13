@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* css */
+
+table {
+  width: 100%;
+  background-color: rgba(192, 192, 192, 0.25);
+  margin: auto auto 5% auto;
+  text-align: center;
+}
+
+caption {
+  margin-bottom: 2%;
+}
+
+caption h2 {
+  margin: 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td a:hover {
+  color: gold;
+}
+
+#toolDescription,
+#articleDescription {
+  width: 50%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+table td:nth-child(2) {
+  text-align: left;
+  padding: 15px;
+}

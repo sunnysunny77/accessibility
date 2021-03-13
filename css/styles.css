@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* css */
+
+body {
+  font-family: Arial, sans-serif, Helvetica, sans-serif;
+  margin: 0;
+  max-width: 1920px;
+  color: darkslateblue;
+}
+
+header {
+  background-color: #2d4369;
+  height: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+header h1 {
+  color: cornsilk;
+  font-size: x-large;
+  width: 310px;
+  font-family: Tahoma, sans-serif, Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+header h1 span {
+  color: gold;
+  font-size: large;
+}
+
+h2 {
+  color: seagreen;
+  margin-left: 10px;
+}
+
+#skip {
+  position: absolute;
+  left: -200vw;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+nav {
+  background-color: rgb(50, 92, 171);
+  height: 75px;
+}
+
+nav,
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul,
+footer ul {
+  margin: 0;
+  padding: 0;
+  font-size: larger;
+}
+
+nav ul li,
+footer ul li {
+  display: inline-block;
+  margin: 0 2.5px;
+}
+
+nav a,
+footer a {
+  text-decoration: none;
+  color: ghostwhite;
+}
+
+nav a:hover,
+footer a:hover {
+  color: gold;
+}
+
+main {
+  min-height: 100vh;
+  padding: 2.5% 5%;
+  background-image: url("../images/main.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-size: larger;
+}
+
+footer {
+  background-color: #9a2b2b;
+  height: 200px;
+}
+
+footer img {
+  margin: 10px 0;
+}
+
+@media only screen and (max-width: 576px) {
+  header {
+    flex-direction: column-reverse;
+    height: initial;
+    padding-top: 5%;
+  }
+  header h1 {
+    width: 230px;
+    font-size: large;
+    text-align: center;
+  }
+  main {
+    font-size: medium;
+  }
+  footer {
+    flex-direction: column-reverse;
+  }
+  nav ul,
+  footer ul {
+    font-size: smaller;
+    text-align: center;
+  }
+  nav ul li,
+  footer ul li {
+    margin: 2.5px 5px;
+    width: 27%;
+  }
+}

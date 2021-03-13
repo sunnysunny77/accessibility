@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* css */
+
+video {
+  width: 50%;
+  display: block;
+  margin: 5% auto;
+  outline: none;
+}
+
+audio {
+  outline: none;
+  margin: 2% 0;
+}
+
+button {
+  display: block;
+  background-color: transparent;
+  border: 1px solid rgb(50, 92, 171);
+  border-radius: 50px;
+  color: darkslateblue;
+  font-size: large;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 2% 0 5% 0;
+}
+
+button:hover {
+  color: gold;
+  }
+
+figure {
+  margin: 0;
+}
+
+article p {
+  background-color: rgba(192, 192, 192, 0.25);
+  padding: 2.5% 7.55%;
+  border-radius: 10px;
+  width: 75%;
+  margin: 5% auto;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+@media only screen and (max-width: 992px) {
+  video {
+    width: 90%;
+  }
+  audio {
+    width: 65%;
+  }
+}
