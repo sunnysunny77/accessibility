@@ -37,7 +37,7 @@ function transcript() {
     transcript.style.display = "none";
     return;
   }
-}
+};
 
 function addEvent(obj, type, fn) {
   if (obj && obj.addEventListener) {
@@ -45,5 +45,5 @@ function addEvent(obj, type, fn) {
   } else if (obj && obj.attachEvent) {
     obj.attachEvent("on" + type, fn);
   }
-}
+};
 

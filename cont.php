@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     Message: ".$message;
 
     $contactus  = wordwrap($contactus ,70);
-
-    if ( mail($to_email,$subject,$contactus) !== true) {
+    $mail = mail($to_email,$subject,$contactus);
+    if ($mail) {
       $res = "Thanks, sent to &#128231; ";
     } else {
       $res = "Thanks, sent to &#128231; ";

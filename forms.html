@@ -42,6 +42,7 @@
             type="radio"
             name="contactpreference"
             value="phone"
+            required
           />
 
           <label for="contactpreferenceemail"> Email </label>
@@ -50,6 +51,7 @@
             type="radio"
             name="contactpreference"
             value="email"
+            required
           />
         </fieldset>
 
@@ -57,10 +59,10 @@
           <legend>Details</legend>
 
           <label for="name"> Name: </label>
-          <input id="name" type="text" name="name" />
+          <input id="name" type="text" name="name" required/>
 
           <label for="email"> Email: </label>
-          <input id="email" type="email" name="email" />
+          <input id="email" type="email" name="email" required/>
 
           <label for="phone"> Phone number: </label>
           <input
@@ -70,10 +72,11 @@
             maxlength="11"
             value=""
             pattern="[0-9]+"
+            required
           />
 
           <label for="message"> Message: </label>
-          <textarea id="message" name="message"></textarea>
+          <textarea id="message" name="message" required></textarea>
         </fieldset>
 
         <p id="sent" style="display: none; text-align: center"></p>
