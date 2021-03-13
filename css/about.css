@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* css */
+
+@media only screen and (max-width: 576px) {
+  blockquote {
+    margin: 0;
+  }
+}
