@@ -15,6 +15,7 @@ function loadDoc(event) {
       sent.innerHTML = this.responseText;
       setTimeout(function () {
         sent.style.display = "none";
+        sent.innerHTML = "";
         sub.style.display = "block";
       }, 5000);
     }
