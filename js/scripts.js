@@ -5,24 +5,43 @@ function loadDoc(event) {
   const sub = document.getElementById("sub");
   const sent = document.getElementById("sent");
   const formData = new FormData(form);
-  let xhttp = new XMLHttpRequest();
-
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
+  
+  let myPromise = new Promise(function(myResolve, myReject) {
+  let req = new XMLHttpRequest();
+  req.open("POST", "cont.php", true);
+  req.onload = function() {
+    if (req.status == 200) {
+      myResolve(req.responseText);
+    } else {
+      myReject("File not Found");
+    }
+  };
+  req.send(formData);
+  });
+  myPromise.then(
+    function(value) {
       form.reset();
       sub.style.display = "none";
       sent.style.display = "block";
-      sent.innerHTML = this.responseText;
+      sent.innerHTML = value;
+      setTimeout(function () {
+        sent.style.display = "none";
+        sent.innerHTML = "";
+        sub.style.display = "block";
+      }, 5000);
+    },
+    function(error) {
+      form.reset();
+      sub.style.display = "none";
+      sent.style.display = "block";
+      sent.innerHTML = error;
       setTimeout(function () {
         sent.style.display = "none";
         sent.innerHTML = "";
         sub.style.display = "block";
       }, 5000);
     }
-  };
-
-  xhttp.open("POST", "cont.php", true);
-  xhttp.send(formData);
+  );
 }
 
 function transcript() {
