@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* css */
+
+form {
+  width: 200px;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+input {
+  margin: 10px auto;
+  width: calc(100% - 4px);
+  padding: 0;
+  display: block;
+}
+
+input[type=submit] {
+  background-color: transparent;
+  color: darkslateblue;
+  border-radius: 50px;
+  font-size: large;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid rgb(50, 92, 171);
+  width: unset;
+  padding: 5px 10px;
+  margin: 2% auto 15% auto;
+}

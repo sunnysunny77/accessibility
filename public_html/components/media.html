@@ -1,0 +1,227 @@
+<link href="css/media.css" rel="stylesheet" type="text/css" />
+<article>
+  <h2>Video</h2>
+  Video is a great tool in HTML 5.
+  <br />
+  Captions are the only way many users can understand videos. Turn the
+  captions on for this video using the video controls.
+  <video crossorigin="" controls aria-label="Caption video">
+    <source
+      src="https://gendrive.s3-ap-southeast-2.amazonaws.com/video-captions.mp4"
+      type="video/mp4"
+    />
+    <track
+      src="https://gendrive.s3-ap-southeast-2.amazonaws.com/captions.vtt"
+      kind="subtitles"
+      srclang="en"
+      label="English"
+    />
+    <p>This browser does not support the video element.</p>
+  </video>
+</article>
+<article>
+  <h2>Audio</h2>
+  Audio files are a preferred media medium for many.
+  <figure>
+    <figcaption>Listen to the Coronacast podcast:</figcaption>
+    <audio controls aria-label="Coronacast podcast">
+      <source src="https://gendrive.s3-ap-southeast-2.amazonaws.com/coronacast.mp3" type="audio/mpeg" />
+      Your browser does not support the audio tag.
+    </audio>
+  </figure>
+  Transcripts of the audio should be provided for people with hearing
+  difficulties.
+  <button id="vTranscript" aria-expanded="false" >Read transcript</button>
+  <p id="transcript" style="display: none" aria-label="Coronacast transcript" >
+    Tegan Taylor: Hello, welcome to Coronacast, a daily podcast all about
+    the coronavirus. I'm health reporter Tegan Taylor. Norman Swan: And
+    I'm physician and journalist Dr Norman Swan. It's Thursday, 11 March,
+    2021. And Tegan, another anniversary. Tegan Taylor: Yes, on 11 March,
+    2020, the World Health Organisation declared the coronavirus outbreak
+    a pandemic. The Australian government and actually declared it a
+    pandemic a little bit before that. Norman Swan: And Coronacast had
+    called it a pandemic even earlier than that. Tegan Taylor: Yes, we had
+    been running for a whole week by this stage. I think it was pretty
+    clear from weeks earlier that it was going to be a massive deal. But
+    one of the things that was really interesting to me was looking back
+    on the sorts of questions that we were getting from our audience a
+    year ago. Would you like to hear some of them, Norman? Norman Swan:
+    Before you do, we should just remind people where the world was at. So
+    the World Health Organisation, Dr Tedros Ghebreyesus, he was
+    saying…they were late to the party, you'd have to say, in the early
+    days of the pandemic. So he was worried the number of cases had
+    increased 13-fold in two weeks. So the number of cases that were known
+    was not millions, it was just starting really. But Italy was really
+    under major stress. Within hours of him announcing the pandemic, in
+    Italy all shops except food shops and pharmacies closed. A really
+    tough lockdown because of the way things were taking off in Italy. So
+    essentially the genie was out of the bottle, it had well spread by
+    then and was already brewing, often unknown, in places like the United
+    States where they thought they were fine but most people who were
+    observing knew they weren't at all. Tegan Taylor: We had had a couple
+    of cases here in Australia at that time but I don't think we had had
+    community transmission at that stage. Norman Swan: It was mostly just
+    from overseas. Tegan Taylor: So the questions that we were getting
+    from our audience were things like what's the best way to wash your
+    hands, should we be using bath soap or liquid soap, is the virus
+    passing from person to person out in the community, and things like
+    how many intensive care beds do we have in Australia. Norman Swan: And
+    a question about gyms, and I think that was the point where…it was
+    getting towards the point where I gave up the gym. I can't remember
+    exactly the date I did that but it was close. And in those days there
+    was a lot of talk about surfaces, cleaning surfaces, what could you
+    use to clean surfaces, detergents, should it all be alcohol. Of course
+    detergent was the right thing because it killed the virus. Washing
+    hands. A lot of obsession about surfaces. And what we know now, after
+    a long period of learning, is that while surfaces are important, they
+    are not nearly as important as airborne spread. So if we had known
+    that then, we would have said, yes, it's important to do all that and
+    keep things hygienic but, you know, airborne spread. And the other
+    thing that was really dominant in those days was…it was only a year
+    ago…was this whole business of droplet spread at near distance. So a
+    lot of your questions were about 1.5 metres, two metres, is it safe
+    outside and so on, and this whole idea about droplet spread. And we
+    were pretty down on masks as well at that point, partly because there
+    was a shortage but also because…and it became a dominant argument for
+    the rest of the year, is that in fact while droplet spread is indeed
+    part of the story, it is only part of the story, and we now know that
+    airborne spread and microdroplets, which stay in the air for a long
+    period of time, are really a major issue, and that became very, very
+    clear as the year went by. And a lot of you were onto it because you
+    are saying what happens if I pass somebody when I'm running and I
+    catch that cloud in the air really…you had a sense of that before in
+    fact the science caught up with that. We now know that outdoors is a
+    pretty safe environment, it's indoors that counts. So we've learnt a
+    lot and in many ways your questions have been ahead of the game. But
+    what we learnt early on is we had to be very careful what we advised
+    because it could have changed behaviour in terms of what people did,
+    because loose lips sink ships, and I wasn't referring to the cruise
+    ships either. Tegan Taylor: I'm not sure how many ships you've sunk
+    over the past year, Norman, but we did have 127 Australian cases by 11
+    March last year. But one of the things that really stood out to me
+    when I looked back over these questions that people were asking was
+    how invested people were in wanting to do the right thing and protect
+    themselves and those around them, and just how much more
+    health-literate people are a year on now after really quite literally
+    and breathing a pandemic time over this past year. Like, hand washing
+    and soaps and hand sanitisers, it's something we are all kind of
+    fluent in now. Norman Swan: Yes, and I think any Coronacast listener
+    could answer all those questions because they've come with us on the
+    journey and now we're getting much more deep and harder to answer
+    questions about vaccines and the nature of the virus and variants.
+    Tegan Taylor: It's a phase that we would be dreaming of being in a
+    year ago. The idea of having a vaccine within a year, those numbers
+    were being tossed around but it really felt like very, very
+    optimistic. So when the World Health Organisation declares a pandemic,
+    that puts pressure on countries to respond in a certain way. Do they
+    ever declare a pandemic as being officially over? Norman Swan: Very
+    good question. I think it's a process, a pandemic being over. In the
+    case of influenza, they get vaccines on board, so in 2009 they got
+    vaccines on board, it started to transition back into seasonal
+    influenza. And when COVID-19 will be over, will be beyond a pandemic,
+    is when the majority of people around the world are immunised or a
+    large percentage of people are immunised around the world, and it
+    comes and goes in seasons rather than being so overwhelming it just
+    never goes away and you've got wave after wave after wave. Influenza
+    does still come in waves but they are waves dictated by seasons and
+    the peaks aren't as high. So it's a transition, and I don't think that
+    COVID-19 will transition away from being a pandemic for another couple
+    of years, simply because we are not well enough immunised. Tegan
+    Taylor: Let's talk about immunisations, because we heard yesterday
+    that Professor Brendan Murphy is saying one of the biggest challenges
+    with the locally produced AstraZeneca vaccines, the ones that are
+    being manufactured here in Melbourne, is just getting them into
+    bottles. Norman Swan: Yes, so I'm not quite sure exactly what Brendan
+    was talking about at that point in terms of whether there was a
+    specific issue, but it is a big part of the process. A really major
+    part of the process is you've got these huge vats that are brewing up
+    the vaccine, so they have genetically engineered the vaccine, they've
+    got the virus attached to the genetic information, they've got to grow
+    that up from a starter material and then you've got to decant it and
+    get it into bottles, and you've got to get into bottles in the right
+    dose because they are multidose vials, and you've got to have a supply
+    of the vials made of the right glass and it has got to be done in a
+    sterile environment, and I understand it's not a fast process, it's
+    not like filling milk bottles. Tegan Taylor: I've seen some of our
+    listeners saying things like: can't we just make more vaccine? But
+    really the manufacturing process is really involved, the safety
+    standards are so high. And the CSL labs are going to be making
+    something like a million doses a week. You can't just make more
+    because there are so many different checks and balances in that supply
+    chain, including just supply of glass. Norman Swan: Yes, I think the
+    mRNA vaccines are a bit easier to make than the viral vector vaccines.
+    Tegan Taylor: But you've still got to have somewhere to make them.
+    Norman Swan: You've got to have somewhere to make them and you've got
+    to handle it very gently because the mRNA capsules or the packaging,
+    if you like, of the mRNA is very delicate, so you've just got to be a
+    bit more careful about that. So there are elements in each. There are
+    bottlenecks, and enough vials is one of the bottlenecks. Tegan Taylor:
+    So at the moment, at the risk of jinxing us, Australia is in a pretty
+    good position in terms of very, very low levels of coronavirus
+    locally, but there has been a signal in Adelaide wastewater over the
+    past few days indicating that maybe there is some virus that could be
+    circulating under the radar. What do we know? Norman Swan: Well, all
+    we know is by reports and that the authorities there are saying that
+    they think it's an accurate result of coronavirus in the Adelaide
+    wastewater. They don't think it's from borders, in other words they
+    don't think it's from a returned traveller or somebody who works in
+    hotel quarantine. It's hard to know where it would come from if it
+    wasn't that because really the only source of virus in Australia is
+    from overseas. So it has to have come from a returned traveller or
+    somebody who was working on the borders. Maybe it has come from
+    another state, but it will have come from somebody from overseas and
+    we will in our genomic records have a sense of where the virus would
+    have come from, a Victorian traveller, a New South Wales traveller.
+    Remember, genomics is hard to do sometimes on this because you're not
+    getting the whole virus, you're just getting fragments of the virus.
+    Some people excrete for a long time and the question is whether or not
+    you are seeing people who are long excreters, and some of the new
+    variants do seem to excrete for a fair bit of time. So it's a mystery
+    but they think it's real. Tegan Taylor: And some more feedback from
+    our audience, Kylie has sent in saying: not a question, just a thank
+    you. She is a healthcare worker and just moments ago received her
+    first dose of the Pfizer vaccine, and she says thank you for helping
+    me be prepared and informed and so ready for this moment over the past
+    12 months. She said she had no qualms or hesitations as she walked
+    into the room today. Here's to dose two. Norman Swan: Yes, here's to
+    your dose to, well done Kylie. Tegan Taylor: And Thorlene is asking a
+    question about what if the vaccines don't work on the new variants?
+    Are we facing another year or two of closed borders, caps on entry and
+    hotel quarantine while we have another go at a vaccine rollout? Is
+    this just a practice run? Norman Swan: It's not a practice run, this
+    turns COVID-19 into the common cold. So if the variants do get in,
+    it's highly likely that even the new variants will…the vaccines will
+    protect us against severe disease, they will be strong enough to do
+    that, but there may well be breakthrough. What it means is that quite
+    soon we are going to have to have booster shots from vaccines that
+    have been designed to oppose the new variants. They are already being
+    worked upon. We had John Skerritt from the TGA talking about that a
+    couple of weeks ago on Coronacast if you want to look back, and these
+    will almost certainly be called multi-valent vaccines, you'll hear
+    that word more and more. And a multi-valent vaccine is like an
+    influenza vaccine. So an influenza vaccine contains four versions of
+    the influenza vaccine in one vaccine and these are called
+    multi-valent, meaning several different forms of the same virus, and
+    it's likely that we will have cocktails of vaccines which contain
+    various proteins, if you like, or genetic information that stimulates
+    spikes of the variants. We're going to have to have those boosters and
+    we may have to have boosters on boosters to do that. So I think that
+    borders opening up is going to be difficult issue, although you
+    probably could argue that people who have had the Pfizer and Moderna
+    vaccines are safer than those who have the Astra ones to travel. But I
+    think the boosters will come along. The other strategy that they are
+    talking about here, by the way, is mixing up the doses where you maybe
+    get Astra for the first dose and Pfizer for the second dose, Britain
+    is looking at that. It may well be that you get a stronger immune
+    response if you do that, by mixing the way you are stimulating the
+    immune system. We'll just have to see as time goes on. But borders
+    opening up is a fraught issue. Tegan Taylor: Anyway, that's all we've
+    got time for on Coronacast today. But of course if you've got a
+    question, send it in. We are a year in and we're not stopping yet, so
+    that's abc.net.au/coronacast, and mention Coronacast so that we can
+    find your question or comment. Norman Swan: And we'll see you
+    tomorrow. Tegan Taylor: See you then.
+  </p>
+</article>
+<script src="./js/scripts.js"></script>
+<script src="./js/media.js"></script>

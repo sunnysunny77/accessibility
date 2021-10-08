@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* css */
+
+#output {
+  text-align: center; 
+  margin-top: 10vh; 
+  font-size: 130%;
+  color: brown;
+}

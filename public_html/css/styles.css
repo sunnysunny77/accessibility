@@ -44,7 +44,7 @@ h2 {
 
 nav {
   background-color: rgb(50, 92, 171);
-  height: 75px;
+  height: 100px;
 }
 
 nav,
@@ -79,6 +79,11 @@ footer a:hover {
   color: gold;
 }
 
+nav img, footer li img {
+  vertical-align: bottom;
+  margin: 0;
+}
+
 main {
   min-height: 100vh;
   padding: 2.5% 5%;
@@ -90,7 +95,7 @@ main {
 
 footer {
   background-color: #9a2b2b;
-  height: 200px;
+  height: 220px;
 }
 
 footer img {
@@ -121,7 +126,7 @@ footer img {
   }
   nav ul li,
   footer ul li {
-    margin: 2.5px 5px;
+    margin: 5px 5px;
     width: 27%;
   }
 }

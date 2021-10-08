@@ -1,0 +1,49 @@
+<link href="css/contactform.css" rel="stylesheet" type="text/css" />
+<form action="#" method="post">
+  <h2>Contact form</h2>
+  <fieldset>
+    
+    <legend>Contact Preference</legend>
+
+    <label for="contactpreferencephone"> Phone </label>
+    <input
+      id="contactpreferencephone"
+      type="radio"
+      name="contactpreference"
+      value="phone"
+      
+    />
+
+    <label for="contactpreferenceemail"> Email </label>
+    <input
+      id="contactpreferenceemail"
+      type="radio"
+      name="contactpreference"
+      value="email"
+      
+    />
+  </fieldset>
+
+  <fieldset>
+    <legend>Details</legend>
+
+    <label for="name"> Name: </label>
+    <input autocomplete="on" id="name" type="text" name="name" />
+
+    <label for="email"> Email: </label>
+    <input autocomplete="on" id="email" type="text" name="email" />
+
+    <label for="phone"> Phone number: </label>
+    <input autocomplete="on" type="text" name="phone" id="phone" />
+
+    <label for="message"> Message: </label>
+    <textarea id="message" name="message" rows="10" ></textarea>
+  </fieldset>
+  <input
+    type="submit"
+    name="action"
+    value="Send Request"
+  />
+</form>
+
+

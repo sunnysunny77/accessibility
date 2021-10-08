@@ -1,0 +1,61 @@
+<?php 
+$root = $_SERVER['DOCUMENT_ROOT'];
+include_once $root . '/template/template.php';
+echo $head;
+if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
+  
+  $name = $_REQUEST["name"];
+  $phone = $_REQUEST["phone"];
+  $email = $_REQUEST["email"];
+  $message = $_REQUEST["message"];
+  $contactpreference = $_REQUEST["contactpreference"];
+  
+  $output = ""; 
+  if (empty($contactpreference)) {
+    $output .= 'Error choose a contact preference. <br><br>';
+  }
+  if (!preg_match("/^[A-Z \.\-']{2,40}$/i", $name )) {
+    $output .= 'Error enter youre name. <br><br>';
+  } 
+  if (!preg_match("/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/", $email )) {
+    $output .= 'Error email patern accepts examaple@example.com. <br><br>';
+  } 
+  if (!preg_match("/^[+]?[0-9]{3,15}$/", $phone )) {
+    $output .= 'Error phone number patern accepts +###############. <br><br>';
+  }
+  if (!preg_match("/^.*[a-zA-Z0-9].*$/", $message )) {
+    $output .= 'Error enter youre message. <br><br>';
+  }
+  if (!empty($output)) {
+    include_once  $root . '/components/error.html.php';
+    echo $foot;
+    exit();  
+  }
+  
+  $to_email = "mail.com";
+  $subject = "New Contact Us Message";
+  $contactus = "
+  You have a message from the contact us page on your website:
+  Name: ".$name."
+  Phone: ".$phone."
+  Email: ".$email."
+  Contact preference: ".$contactpreference."
+  Message: ".$message;
+  $contactus  = wordwrap($contactus ,70);
+  $mail = mail($to_email,$subject,$contactus);
+  if (!$mail) {
+    $res = "Error sending &#128231;";
+  } else {
+    $res = "Thanks sent to &#128231;";
+  }
+  include_once $root . '/components/form.response.html.php';
+  echo $foot; 
+  header( "refresh:5;./index.php" ); 
+  exit();
+} 
+if (!isset($_POST['action'])){
+  echo file_get_contents($root . '/components/forms.html');
+  echo $foot;
+  exit(); 
+}
+?>

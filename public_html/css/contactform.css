@@ -14,8 +14,7 @@ input[type="radio"] {
 
 textarea {
   resize: none;
-  height: 100px;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 input[type="submit"] {
