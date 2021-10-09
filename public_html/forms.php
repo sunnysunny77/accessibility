@@ -32,7 +32,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
     exit();  
   }
   
-  $to_email = "mail.com";
+  $to_email = "@gmail.com";
   $subject = "New Contact Us Message";
   $contactus = "
   You have a message from the contact us page on your website:
@@ -44,9 +44,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
   $contactus  = wordwrap($contactus ,70);
   $mail = mail($to_email,$subject,$contactus);
   if (!$mail) {
-    $res = "Error sending &#128231;";
+    $res = "Error sending \xf0\x9f\x93\xa7";
   } else {
-    $res = "Thanks sent to &#128231;";
+    $res = "Thanks sent to \xf0\x9f\x93\xa7;";
   }
   include_once $root . '/components/form.response.html.php';
   echo $foot; 
