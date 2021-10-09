@@ -46,7 +46,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
   if (!$mail) {
     $res = "Error sending \xf0\x9f\x93\xa7";
   } else {
-    $res = "Thanks sent to \xf0\x9f\x93\xa7;";
+    $res = "Thanks sent to \xf0\x9f\x93\xa7";
   }
   include_once $root . '/components/form.response.html.php';
   echo $foot; 
