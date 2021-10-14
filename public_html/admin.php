@@ -91,16 +91,16 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Tool') {
 
     $output = ""; 
     if (empty($tool) || empty($toolDescription) || empty($toolLink)) {
-        $output .= 'Error please fill out all fields. <br><br>';
+        $output .= "Error please fill out all fields. \n\n";
     }
     if (strlen($tool) > 40) {
-        $output .= 'Error tool is longer than 40 chracters. <br><br>';
+        $output .= "Error tool is longer than 40 chracters. \n\n";
     }
     if (strlen($toolDescription) > 1000) {
-        $output .= 'Error tool description is longer than 1000 chracters. <br><br>';
+        $output .= "Error tool description is longer than 1000 chracters. \n\n";
     }
     if (!preg_match("/^(https?:\/\/)/", $toolLink )) {
-        $output .= 'Error tool link accepts a http(s):// URL. <br><br>';
+        $output .= "Error tool link accepts a http(s):// URL. \n\n";
     }
     if (!empty($output)) {
         include_once  $root . '/components/error.html.php';
@@ -140,16 +140,16 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Article') {
     
     $output = ""; 
     if (empty($article) || empty($articleDescription) || empty($articleLink)) {
-        $output .= 'Error please fill out all fields. <br><br>';
+        $output .= "Error please fill out all fields. \n\n";
     }
     if (strlen($article) > 40) {
-        $output .= 'Error article is longer than 40 chracters. <br><br>';
+        $output .= "Error article is longer than 40 chracters. \n\n";
     }
     if (strlen($articleDescription) > 1000) {
-        $output .= 'Error article description is longer than 1000 chracters. <br><br>';
+        $output .= "Error article description is longer than 1000 chracters. \n\n";
     }
     if (!preg_match("/^(https?:\/\/)/", $articleLink )) {
-        $output .= 'Error article link accepts a http(s):// URL. <br><br>';
+        $output .= "Error article link accepts a http(s):// URL. <br><br>\n\n";
     }
     if (!empty($output)) {
         include_once  $root . '/components/error.html.php';
@@ -189,16 +189,16 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool') {
 
     $output = ""; 
     if (empty($tool) || empty($toolDescription) || empty($toolLink)) {
-        $output .= 'Error please fill out all fields. <br><br>';
+        $output .= "Error please fill out all fields. \n\n";
     }
     if (strlen($tool) > 40) {
-        $output .= 'Error tool is longer than 40 chracters. <br><br>';
+        $output .= "Error tool is longer than 40 chracters. \n\n";
     }
     if (strlen($toolDescription) > 1000) {
-        $output .= 'Error tool description is longer than 1000 chracters. <br><br>';
+        $output .= "Error tool description is longer than 1000 chracters. \n\n";
     }
     if (!preg_match("/^(https?:\/\/)/", $toolLink )) {
-        $output .= 'Error tool link accepts a http(s):// URL. <br><br>';
+        $output .= "Error tool link accepts a http(s):// URL. \n\n";
     }
     if (!empty($output)) {
         include_once  $root . '/components/error.html.php';
@@ -238,16 +238,16 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Article') {
 
     $output = ""; 
     if (empty($article) || empty($articleDescription) || empty($articleLink)) {
-        $output .= 'Error please fill out all fields. <br><br>';
+        $output .= "Error please fill out all fields. \n\n";
     }
     if (strlen($article) > 40) {
-        $output .= 'Error article is longer than 40 chracters. <br><br>';
+        $output .= "Error article is longer than 40 chracters. \n\n";
     }
     if (strlen($articleDescription) > 1000) {
-        $output .= 'Error article description is longer than 1000 chracters. <br><br>';
+        $output .= "Error article description is longer than 1000 chracters. \n\n";
     }
     if (!preg_match("/^(https?:\/\/)/", $articleLink )) {
-        $output .= 'Error article link accepts a http(s):// URL. <br><br>';
+        $output .= "Error article link accepts a http(s):// URL. \n\n";
     }
     if (!empty($output)) {
         include_once  $root . '/components/error.html.php';
@@ -293,16 +293,16 @@ if (isset($_POST['action']) && $_POST['action'] == 'Login') {
 
     $output = "";
     if (empty($user) || empty($pass)) {
-        $output .= 'Error please fill out all fields. <br><br>';
+        $output .= "Error please fill out all fields. \n\n";
     }
     if (preg_match('/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/', $user)) {
-        $output .= 'Error username includes special characters. <br><br>';
+        $output .= "Error username includes special characters. \n\n";
     }
     if (strlen($user) > 40) {
-        $output .= 'Error username is longer than 40 chracters. <br><br>';
+        $output .= "Error username is longer than 40 chracters. \n\n";
     }
     if (strlen($pass) > 40) {
-        $output .= 'Error password is longer than 40 chracters. <br><br>';
+        $output .= "Error password is longer than 40 chracters. \n\n";
     }
     if (!empty($output)) {
         include_once  $root . '/components/error.html.php';

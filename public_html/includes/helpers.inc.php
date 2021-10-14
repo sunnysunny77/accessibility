@@ -6,7 +6,8 @@ function html($text)
 
 function htmlout($text)
 {
-	echo html($text);
+	$text = html($text);
+	$text = str_replace("\n", '<br>', $text);
+	echo $text;
 }
-
 
