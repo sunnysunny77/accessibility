@@ -2,7 +2,7 @@
 <link href="css/admin.css" rel="stylesheet" type="text/css" />
 <h2>Welcome <?php htmlout($_SESSION['user']); ?></h2>
 <h3>Add Resource Articles</h3>
-<form action="#" method="post" >
+<form action="?" method="post" >
 <fieldset>
     <legend>Insert new Article</legend>
     <label for="newarticle">Article</label>
@@ -23,7 +23,7 @@
 </fieldset>
 </form>
 <h3>Add Resource Tools</h3>
-<form action="#" method="post" >
+<form action="?" method="post" >
 <fieldset>
     <legend>Insert new Tool</legend>
     <label for="newtool">Tool</label>
@@ -46,7 +46,7 @@
 <h3>Edit Resource Atricles</h3>
 <?php
 foreach ($article as $update_1) {
-    echo "<form action=\"#\" method=\"post\" >";
+    echo "<form action=\"?\" method=\"post\" >";
     echo "<fieldset>";
     echo "<legend>Edit</legend>";
     echo "<input type=\"hidden\" name=\"id\"  value=\"";
@@ -98,7 +98,7 @@ foreach ($article as $update_1) {
 <h3>Edit Resource Tools</h3>
 <?php
 foreach ($tool as $update_2) {
-    echo "<form action=\"#\" method=\"post\" >";
+    echo "<form action=\"?\" method=\"post\" >";
     echo "<fieldset>";
     echo "<legend>Edit</legend>";
     echo "<input type=\"hidden\" name=\"id\"  value=\"";
@@ -148,7 +148,7 @@ foreach ($tool as $update_2) {
 }
 ?>
 <h3>Upload Header Logo</h3>
-<form action="#" method="post" enctype="multipart/form-data">
+<form action="?" method="post" enctype="multipart/form-data">
 <fieldset>
     <legend>Upload</legend>
     <label for="upload">Upload File:</label>
