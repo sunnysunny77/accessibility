@@ -85,28 +85,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Article') {
 }
 if (isset($_POST['action']) && $_POST['action'] == 'Update Tool') {
     
-    $tool = $_POST['tool'];
-    $toolDescription = $_POST['toolDescription'];
-    $toolLink = $_POST['toolLink'];
-
-    $output = ""; 
-    if (empty($tool) || empty($toolDescription) || empty($toolLink)) {
-        $output .= "Error please fill out all fields. \n\n";
-    }
-    if (strlen($tool) > 40) {
-        $output .= "Error tool is longer than 40 chracters. \n\n";
-    }
-    if (strlen($toolDescription) > 1000) {
-        $output .= "Error tool description is longer than 1000 chracters. \n\n";
-    }
-    if (!preg_match("/^(https?:\/\/)/", $toolLink )) {
-        $output .= "Error tool link accepts a http(s):// URL. \n\n";
-    }
-    if (!empty($output)) {
-        include_once  $root . '/components/error.html.php';
-        echo $foot;
-        exit();  
-    }
+    include_once $root . '/includes/tool.valid.inc.php';
     
     include_once $root . '/includes/db.inc.php';
     try {
@@ -134,29 +113,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Tool') {
 }
 if (isset($_POST['action']) && $_POST['action'] == 'Update Article') {
     
-    $article = $_POST['article'];
-    $articleDescription = $_POST['articleDescription'];
-    $articleLink = $_POST['articleLink'];
+    include_once $root . '/includes/article.valid.inc.php';
     
-    $output = ""; 
-    if (empty($article) || empty($articleDescription) || empty($articleLink)) {
-        $output .= "Error please fill out all fields. \n\n";
-    }
-    if (strlen($article) > 40) {
-        $output .= "Error article is longer than 40 chracters. \n\n";
-    }
-    if (strlen($articleDescription) > 1000) {
-        $output .= "Error article description is longer than 1000 chracters. \n\n";
-    }
-    if (!preg_match("/^(https?:\/\/)/", $articleLink )) {
-        $output .= "Error article link accepts a http(s):// URL. <br><br>\n\n";
-    }
-    if (!empty($output)) {
-        include_once  $root . '/components/error.html.php';
-        echo $foot;
-        exit();  
-    }
-
     include_once $root . '/includes/db.inc.php';
     try {
         $sql = 'UPDATE articles
@@ -183,28 +141,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Article') {
 }
 if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool') {
     
-    $tool = $_POST['tool'];
-    $toolDescription = $_POST['toolDescription'];
-    $toolLink = $_POST['toolLink'];
-
-    $output = ""; 
-    if (empty($tool) || empty($toolDescription) || empty($toolLink)) {
-        $output .= "Error please fill out all fields. \n\n";
-    }
-    if (strlen($tool) > 40) {
-        $output .= "Error tool is longer than 40 chracters. \n\n";
-    }
-    if (strlen($toolDescription) > 1000) {
-        $output .= "Error tool description is longer than 1000 chracters. \n\n";
-    }
-    if (!preg_match("/^(https?:\/\/)/", $toolLink )) {
-        $output .= "Error tool link accepts a http(s):// URL. \n\n";
-    }
-    if (!empty($output)) {
-        include_once  $root . '/components/error.html.php';
-        echo $foot;
-        exit();  
-    }
+    include_once $root . '/includes/tool.valid.inc.php';
 
     include_once $root . '/includes/db.inc.php';
     try {
@@ -232,28 +169,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool') {
 }
 if (isset($_POST['action']) && $_POST['action'] == 'Insert Article') {
     
-    $article = $_POST['article'];
-    $articleDescription = $_POST['articleDescription'];
-    $articleLink = $_POST['articleLink'];
-
-    $output = ""; 
-    if (empty($article) || empty($articleDescription) || empty($articleLink)) {
-        $output .= "Error please fill out all fields. \n\n";
-    }
-    if (strlen($article) > 40) {
-        $output .= "Error article is longer than 40 chracters. \n\n";
-    }
-    if (strlen($articleDescription) > 1000) {
-        $output .= "Error article description is longer than 1000 chracters. \n\n";
-    }
-    if (!preg_match("/^(https?:\/\/)/", $articleLink )) {
-        $output .= "Error article link accepts a http(s):// URL. \n\n";
-    }
-    if (!empty($output)) {
-        include_once  $root . '/components/error.html.php';
-        echo $foot;
-        exit();  
-    }
+    include_once $root . '/includes/article.valid.inc.php';
 
     include_once $root . '/includes/db.inc.php';
     try {

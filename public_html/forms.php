@@ -27,6 +27,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
     $output .= "Error enter youre message. \n\n";
   }
   if (!empty($output)) {
+    $output .= "Please navigate back.";
     include_once  $root . '/components/error.html.php';
     echo $foot;
     exit();  
