@@ -64,6 +64,6 @@ VALUES
 "This validator checks the markup validity of Web documents in HTML, XHTML, SMIL, MathML, etc.",
 "http://validator.w3.org/");
 
-CREATE TABLE files ( id SMALLINT NOT NULL, filename VARCHAR(255) NOT NULL, mimetype VARCHAR(50) NOT NULL, filedata MEDIUMBLOB , PRIMARY KEY (id)); 
+CREATE TABLE files ( id SMALLINT, filename VARCHAR(255) NOT NULL, mimetype VARCHAR(50) NOT NULL, filedata MEDIUMBLOB , PRIMARY KEY (id)); 
 
 INSERT INTO files (id ,filename, mimetype) VALUES (1,"header.png", "image/png");
