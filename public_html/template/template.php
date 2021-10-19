@@ -1,5 +1,4 @@
 <?php
-$src = './header.image.download.php';
 $location = "Home";
 $dir = "./";
 $host = ucfirst(basename($_SERVER["PHP_SELF"], ".php"));
@@ -21,8 +20,8 @@ $head = "
             <header>
                 <h1>Accessibility<span>:</span>$location</h1>
                 <img
-                src=\"$src\"
-                alt=\"Logo\"
+                src=\"./images/header.png\"
+                alt=\"Accessibility Logo\"
                 width=\"125\"
                 height=\"125\"
                 />

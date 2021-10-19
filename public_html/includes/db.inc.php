@@ -11,6 +11,3 @@ catch (PDOException $e) {
   require $root . '/components/error.html.php';
   exit();
 }
-
-
-

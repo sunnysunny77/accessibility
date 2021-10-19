@@ -10,21 +10,21 @@ echo "<table>";
     echo  "<th id=\"articleDescription\">Description</th>";
     echo  "<th id=\"articleLink\">Link</th>";
   echo "</tr>";
-  for ($x = 0; $x < $count_1; $x++) {
+  foreach ($article as $value) {
     echo "<tr>";
       echo "<td headers=\"article\">";
-      htmlout($article[$x]['article']);
+      htmlout($value['article']);
       echo "</td>";
       echo "<td headers=\"articleDescription\">";
-      htmlout($article[$x]['articleDescription']); 
+      htmlout($value['articleDescription']); 
       echo "</td>";
       echo "<td headers=\"articleLink\">";
       echo "<a href=\"";
-      htmlout($article[$x]['articleLink']); 
+      htmlout($value['articleLink']); 
       echo "\" rel=\"external\" target=\"";    
-      htmlout($article[$x]['article']);    
+      htmlout($value['article']);    
       echo "\">";
-      htmlout($article[$x]['article']);
+      htmlout($value['article']);
       echo "</a>";
       echo "</td>";
     echo "</tr>";

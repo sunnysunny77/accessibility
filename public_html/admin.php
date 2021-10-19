@@ -3,41 +3,21 @@ session_start();
 $root = $_SERVER['DOCUMENT_ROOT'];
 include_once $root . '/template/template.php';
 echo $head;
-if (isset($_POST['action']) and $_POST['action'] == 'Upload') {
-    
-    if (!is_uploaded_file($_FILES['upload']['tmp_name'])) {
-        $output = 'There was no file uploaded.';
-        include_once  $root . '/components/error.html.php';
-        echo $foot;
-        exit();
-    }
-
-    $uploadfile = $_FILES['upload']['tmp_name'];
-    $uploadname = $_FILES['upload']['name'];
-    $uploadtype = $_FILES['upload']['type'];
-    $uploaddata = file_get_contents($uploadfile);
-
+if (isset($_POST['action']) && $_POST['action'] == 'Delete Image') {
     include_once $root . '/includes/db.inc.php';
-
     try {
-    $sql = 'UPDATE files SET
-        filename = :filename,
-        mimetype = :mimetype,
-        filedata = :filedata
-        WHERE id = "1"';
-    $s = $pdo->prepare($sql);
-    $s->bindValue(':filename', $uploadname);
-    $s->bindValue(':mimetype', $uploadtype);
-    $s->bindValue(':filedata', $uploaddata);
-    $s->execute();
+        $sql = 'DELETE FROM files WHERE id=:id';
+        $s = $pdo->prepare($sql);
+        $s->bindValue(':id', $_POST['id']);
+        $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Database error storing file.';
+        $output = 'Error performing update: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
     }
-    $res = 'Uploaded file.';
+    $res = 'Deleted image.';
     include_once $root . '/components/form.response.html.php';
     echo $foot; 
     header( "refresh:5;./admin.php" );
@@ -83,10 +63,57 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Article') {
     header( "refresh:5;./admin.php" );
     exit();
 }
+if (isset($_POST['action']) && $_POST['action'] == 'Update Image') {
+    include_once $root . '/includes/image.valid.inc.php';
+    include_once $root . '/includes/db.inc.php';
+    try {
+        $sql = 'UPDATE files 
+            SET alt=:alt,caption=:caption
+            WHERE id=:id';
+        $s = $pdo->prepare($sql);
+        $s->bindValue(':alt', $alt);
+        $s->bindValue(':caption', $caption);
+        $s->bindValue(':id', $_POST['id']);
+        $s->execute();
+    }
+    catch (PDOException $e) {
+        $output = 'Database error updating file.';
+        include_once  $root . '/components/error.html.php';
+        echo $foot;
+        exit();
+    }
+    if (is_uploaded_file($_FILES['upload']['tmp_name'])) {
+        $uploadfile = $_FILES['upload']['tmp_name'];
+        $uploadname = $_FILES['upload']['name'];
+        $uploadtype = $_FILES['upload']['type'];
+        $uploaddata = file_get_contents($uploadfile);
+        try {
+            $sql = 'UPDATE files 
+                SET filename=:filename,mimetype=:mimetype,filedata=:filedata
+                WHERE id=:id';
+            $s = $pdo->prepare($sql);
+            $s->bindValue(':filename', $uploadname);
+            $s->bindValue(':mimetype', $uploadtype);
+            $s->bindValue(':filedata', $uploaddata);
+            $s->bindValue(':id', $_POST['id']);
+            $s->execute();
+        }
+        catch (PDOException $e) {
+            $output = 'Database error storing file.';
+            include_once  $root . '/components/error.html.php';
+            echo $foot;
+            exit();
+        }
+    }
+   
+    $res = 'Updated file.';
+    include_once $root . '/components/form.response.html.php';
+    echo $foot; 
+    header( "refresh:5;./admin.php" );
+    exit();
+}
 if (isset($_POST['action']) && $_POST['action'] == 'Update Tool') {
-    
     include_once $root . '/includes/tool.valid.inc.php';
-    
     include_once $root . '/includes/db.inc.php';
     try {
         $sql = 'UPDATE tools
@@ -112,9 +139,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Tool') {
     exit();
 }
 if (isset($_POST['action']) && $_POST['action'] == 'Update Article') {
-    
     include_once $root . '/includes/article.valid.inc.php';
-    
     include_once $root . '/includes/db.inc.php';
     try {
         $sql = 'UPDATE articles
@@ -139,10 +164,47 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Article') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool') {
-    
-    include_once $root . '/includes/tool.valid.inc.php';
+if (isset($_POST['action']) and $_POST['action'] == 'Upload') {
+    include_once $root . '/includes/image.valid.inc.php';
+    if (!is_uploaded_file($_FILES['upload']['tmp_name'])) {
+        $output = 'There was no file uploaded.';
+        include_once  $root . '/components/error.html.php';
+        echo $foot;
+        exit();
+    }
 
+    $uploadfile = $_FILES['upload']['tmp_name'];
+    $uploadname = $_FILES['upload']['name'];
+    $uploadtype = $_FILES['upload']['type'];
+    $uploaddata = file_get_contents($uploadfile);
+
+    include_once $root . '/includes/db.inc.php';
+
+    try {
+    $sql = 'INSERT INTO files (filename,mimetype,alt,caption,filedata)
+        VALUES (:filename,:mimetype,:alt,:caption,:filedata)';
+    $s = $pdo->prepare($sql);
+    $s->bindValue(':filename', $uploadname);
+    $s->bindValue(':mimetype', $uploadtype);
+    $s->bindValue(':alt', $alt);
+    $s->bindValue(':caption', $caption);
+    $s->bindValue(':filedata', $uploaddata);
+    $s->execute();
+    }
+    catch (PDOException $e) {
+        $output = 'Database error storing file.';
+        include_once  $root . '/components/error.html.php';
+        echo $foot;
+        exit();
+    }
+    $res = 'Uploaded file.';
+    include_once $root . '/components/form.response.html.php';
+    echo $foot; 
+    header( "refresh:5;./admin.php" );
+    exit();
+}
+if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool') {
+    include_once $root . '/includes/tool.valid.inc.php';
     include_once $root . '/includes/db.inc.php';
     try {
         $sql = 'INSERT INTO tools SET
@@ -168,9 +230,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool') {
     exit();
 }
 if (isset($_POST['action']) && $_POST['action'] == 'Insert Article') {
-    
     include_once $root . '/includes/article.valid.inc.php';
-
     include_once $root . '/includes/db.inc.php';
     try {
         $sql = 'INSERT INTO articles SET

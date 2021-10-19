@@ -10,21 +10,21 @@ echo "<table>";
     echo  "<th id=\"toolDescription\">Description</th>";
     echo  "<th id=\"toolLink\">Link</th>";
   echo "</tr>";
-  for ($x = 0; $x < $count_2; $x++) {
+  foreach ($tool as $value) {
     echo "<tr>";
       echo "<td headers=\"tool\">";
-      htmlout($tool[$x]['tool']);
+      htmlout($value['tool']);
       echo "</td>";
       echo "<td headers=\"toolDescription\">";
-      htmlout($tool[$x]['toolDescription']); 
+      htmlout($value['toolDescription']); 
       echo "</td>";
       echo "<td headers=\"toolLink\">";
       echo "<a href=\"";
-      htmlout($tool[$x]['toolLink']); 
+      htmlout($value['toolLink']); 
       echo "\" rel=\"external\" target=\"";    
-      htmlout($tool[$x]['tool']);    
+      htmlout($value['tool']);    
       echo "\">";
-      htmlout($tool[$x]['tool']);
+      htmlout($value['tool']);
       echo "</a>";
       echo "</td>";
     echo "</tr>";

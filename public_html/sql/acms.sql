@@ -64,6 +64,6 @@ VALUES
 "This validator checks the markup validity of Web documents in HTML, XHTML, SMIL, MathML, etc.",
 "http://validator.w3.org/");
 
-CREATE TABLE files ( id SMALLINT NOT NULL AUTO_INCREMENT, filename VARCHAR(255) NOT NULL, mimetype VARCHAR(50) NOT NULL, alt VARCHAR(255) NOT NULL, caption VARCHAR(255) NOT NULL, filedata MEDIUMBLOB , PRIMARY KEY (id)); 
+CREATE TABLE files ( id SMALLINT NOT NULL, filename VARCHAR(255) NOT NULL, mimetype VARCHAR(50) NOT NULL, filedata MEDIUMBLOB , PRIMARY KEY (id)); 
 
-INSERT INTO files (filename, alt, caption, mimetype) VALUES ("galleryaccesstool.jpeg", "A man using a computer access tool", "Computer access tool", "image/png"),("gallerystepfreeroute.jpeg", "Signage indicating a step free route", "Step free route", "image/png");
+INSERT INTO files (id ,filename, mimetype) VALUES (1,"header.png", "image/png");
