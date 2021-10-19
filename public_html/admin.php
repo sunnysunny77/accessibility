@@ -87,23 +87,38 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Image') {
         $uploadname = $_FILES['upload']['name'];
         $uploadtype = $_FILES['upload']['type'];
         $uploaddata = file_get_contents($uploadfile);
+
         try {
-            $sql = 'UPDATE files 
-                SET filename=:filename,mimetype=:mimetype,filedata=:filedata
-                WHERE id=:id';
+            $sql = 'INSERT IGNORE INTO mimetypes (mimetype)
+                    VALUES (:mimetype)';
             $s = $pdo->prepare($sql);
-            $s->bindValue(':filename', $uploadname);
             $s->bindValue(':mimetype', $uploadtype);
-            $s->bindValue(':filedata', $uploaddata);
-            $s->bindValue(':id', $_POST['id']);
             $s->execute();
         }
         catch (PDOException $e) {
-            $output = 'Database error storing file.'. $e->getMessage();
+            $output = 'Database error inserting mimetype.' . $e->getMessage();
             include_once  $root . '/components/error.html.php';
-            echo $foot;
             exit();
         }
+
+        try {
+            $sql = 'UPDATE files SET
+            filename = :filename,
+            filedata = :filedata,
+            mimetype_id = (SELECT mimetype_id FROM mimetypes WHERE mimetype = :mimetype )
+            WHERE id = :id';
+            $s = $pdo->prepare($sql);
+            $s->bindValue(':filename', $uploadname);
+            $s->bindValue(':filedata', $uploaddata);
+            $s->bindValue(':mimetype', $uploadtype);
+            $s->bindValue(':id', $_POST['id']);
+            $s->execute();
+          }
+          catch (PDOException $e) {
+            $output = 'Database error storing file.' . $e->getMessage();
+            include_once  $root . '/components/error.html.php';
+            exit();
+          }
     }
    
     $res = 'Updated file.';
@@ -181,26 +196,35 @@ if (isset($_POST['action']) and $_POST['action'] == 'Upload') {
     include_once $root . '/includes/db.inc.php';
 
     try {
-        $sql = 'INSERT INTO files SET
-        filename=:filename,
-        mimetype=:mimetype,
-        alt=:alt,
-        caption=:caption,
-        filedata=:filedata';
+        $sql = 'INSERT IGNORE INTO mimetypes (mimetype)
+                VALUES (:mimetype)';
         $s = $pdo->prepare($sql);
-        $s->bindValue(':filename', $uploadname);
         $s->bindValue(':mimetype', $uploadtype);
-        $s->bindValue(':alt', $alt);
-        $s->bindValue(':caption', $caption);
-        $s->bindValue(':filedata', $uploaddata);
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Database error storing file.'. $e->getMessage();
+    $output = 'Database error inserting mimetype.' . $e->getMessage();
+    include_once  $root . '/components/error.html.php';
+    exit();
+    }
+
+    try {
+    $sql = 'INSERT INTO files (filename,alt,caption,filedata,mimetype_id) 
+            VALUES (:filename,:alt,:caption,:filedata,(SELECT mimetype_id FROM mimetypes WHERE mimetype = :mimetype))';
+        $s = $pdo->prepare($sql);
+        $s->bindValue(':filename', $uploadname); 
+        $s->bindValue(':alt', $alt);
+        $s->bindValue(':caption', $caption);
+        $s->bindValue(':filedata', $uploaddata);
+        $s->bindValue(':mimetype', $uploadtype);
+        $s->execute();
+    }
+    catch (PDOException $e) {
+        $output = 'Database error storing file.' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
-        echo $foot;
         exit();
     }
+    
     $res = 'Uploaded file.';
     include_once $root . '/components/form.response.html.php';
     echo $foot; 
