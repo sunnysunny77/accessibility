@@ -65,13 +65,13 @@ VALUES
 "http://validator.w3.org/");
 
 CREATE TABLE mimetypes ( 
-    mimetype_id INT UNSIGNED AUTO_INCREMENT, 
+    mimetype_id TINYINT UNSIGNED AUTO_INCREMENT, 
     mimetype VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY (mimetype_id)
 );
 
 INSERT INTO mimetypes (mimetype) VALUES ("image/jpeg");
 
-CREATE TABLE files ( id SMALLINT NOT NULL AUTO_INCREMENT, filename VARCHAR(255) NOT NULL, alt VARCHAR(255) NOT NULL, caption VARCHAR(255) NOT NULL, filedata MEDIUMBLOB , mimetype_id INT UNSIGNED NOT NULL, PRIMARY KEY (id),FOREIGN KEY (mimetype_id) REFERENCES mimetypes(mimetype_id)); 
+CREATE TABLE files ( id SMALLINT NOT NULL AUTO_INCREMENT, filename VARCHAR(255) NOT NULL, alt VARCHAR(255) NOT NULL, caption VARCHAR(255) NOT NULL, filedata MEDIUMBLOB , mimetype_id TINYINT UNSIGNED NOT NULL, PRIMARY KEY (id),FOREIGN KEY (mimetype_id) REFERENCES mimetypes(mimetype_id)); 
 
 INSERT INTO files (filename, alt, caption, mimetype_id) VALUES ("galleryaccesstool.jpeg", "A man using a computer access tool", "Computer access tool", 1),("gallerystepfreeroute.jpeg", "Signage indicating a step free route", "Step free route", 1);
