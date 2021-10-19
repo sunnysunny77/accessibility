@@ -99,7 +99,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Image') {
             $s->execute();
         }
         catch (PDOException $e) {
-            $output = 'Database error storing file.';
+            $output = 'Database error storing file.'. $e->getMessage();
             include_once  $root . '/components/error.html.php';
             echo $foot;
             exit();
@@ -181,18 +181,22 @@ if (isset($_POST['action']) and $_POST['action'] == 'Upload') {
     include_once $root . '/includes/db.inc.php';
 
     try {
-    $sql = 'INSERT INTO files (filename,mimetype,alt,caption,filedata)
-        VALUES (:filename,:mimetype,:alt,:caption,:filedata)';
-    $s = $pdo->prepare($sql);
-    $s->bindValue(':filename', $uploadname);
-    $s->bindValue(':mimetype', $uploadtype);
-    $s->bindValue(':alt', $alt);
-    $s->bindValue(':caption', $caption);
-    $s->bindValue(':filedata', $uploaddata);
-    $s->execute();
+        $sql = 'INSERT INTO files SET
+        filename=:filename,
+        mimetype=:mimetype,
+        alt=:alt,
+        caption=:caption,
+        filedata=:filedata';
+        $s = $pdo->prepare($sql);
+        $s->bindValue(':filename', $uploadname);
+        $s->bindValue(':mimetype', $uploadtype);
+        $s->bindValue(':alt', $alt);
+        $s->bindValue(':caption', $caption);
+        $s->bindValue(':filedata', $uploaddata);
+        $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Database error storing file.';
+        $output = 'Database error storing file.'. $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
