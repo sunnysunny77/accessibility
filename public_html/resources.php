@@ -3,7 +3,9 @@ $root = $_SERVER['DOCUMENT_ROOT'];
 include_once $root . '/template/template.php';
 echo $head;
 if (isset($_POST['action']) && $_POST['action'] == 'View') {
+
     $view = $_POST['resource'];
+
     if (empty($view)) {
         $output = 'Error please choose a category.';
         include_once  $root . '/components/error.html.php';
@@ -11,7 +13,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'View') {
         header( "refresh:5;./resources.php" );
         exit();  
     }
+
     include_once $root . '/includes/db.inc.php';
+    
     if ($view == "articles") {
         try {
             $sql = 'SELECT article, articleDescription, articleLink FROM articles';

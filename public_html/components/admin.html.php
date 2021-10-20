@@ -1,6 +1,21 @@
 <?php include_once $root . '/includes/helpers.inc.php'; ?>
 <link href="css/admin.css" rel="stylesheet" type="text/css" />
 <h2>Welcome <?php htmlout($_SESSION['user']); ?></h2>
+<?php
+echo "<h3>Change admin login</h3>";
+echo "<form action=\"?\" method=\"post\">";
+echo "<fieldset>";
+echo "<legend>Change</legend>";
+echo "<label for=\"user\"> User: </label>";
+echo "<input autocomplete=\"on\" id=\"user\" type=\"text\" name=\"user\" value=\"";
+htmlout($_SESSION['user']);
+echo"\"/>";
+echo "<label for=\"pass\">Password:</label>";
+echo "<input autocomplete=\"on\" type=\"password\" name=\"pass\" id=\"pass\" />";
+echo "<input type=\"submit\" name=\"action\" value=\"Change Login\" />";
+echo "</fieldset>";
+echo "</form>";
+?>
 <h3>Add Resource Articles</h3>
 <form action="?" method="post" >
 <fieldset>
@@ -65,8 +80,8 @@
     <br>
 </fieldset>
 </form>
-<h3>Edit Resource Atricles</h3>
 <?php
+echo "<h3>Edit Resource Atricles</h3>";
 foreach ($article as $value) {
     echo "<form action=\"?\" method=\"post\" >";
     echo "<fieldset>";
