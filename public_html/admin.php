@@ -3,7 +3,7 @@ session_start();
 $root = $_SERVER['DOCUMENT_ROOT'];
 include_once $root . '/template/template.php';
 echo $head;
-if (isset($_POST['action']) && $_POST['action'] == 'Change Login') {
+if (isset($_POST['action']) && $_POST['action'] == 'Change Login' && $_SESSION['login']) {
 
     include_once $root . "/includes/login.valid.inc.php";
     
@@ -33,7 +33,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Change Login') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Insert Article') {
+if (isset($_POST['action']) && $_POST['action'] == 'Insert Article' && $_SESSION['login']) {
     
     include_once $root . '/includes/article.valid.inc.php';
     include_once $root . '/includes/db.inc.php';
@@ -61,7 +61,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Article') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool') {
+if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool' && $_SESSION['login']) {
     
     include_once $root . '/includes/tool.valid.inc.php';
 
@@ -90,7 +90,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) and $_POST['action'] == 'Upload') {
+if (isset($_POST['action']) and $_POST['action'] == 'Upload' && $_SESSION['login']) {
 
     include_once $root . '/includes/image.valid.inc.php';
 
@@ -144,7 +144,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Upload') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Update Article') {
+if (isset($_POST['action']) && $_POST['action'] == 'Update Article' && $_SESSION['login']) {
 
     include_once $root . '/includes/article.valid.inc.php';
 
@@ -173,7 +173,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Article') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Delete Article') {
+if (isset($_POST['action']) && $_POST['action'] == 'Delete Article' && $_SESSION['login']) {
     include_once $root . '/includes/db.inc.php';
     try {
         $sql = 'DELETE FROM articles WHERE id=:id';
@@ -193,7 +193,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Article') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Update Tool') {
+if (isset($_POST['action']) && $_POST['action'] == 'Update Tool' && $_SESSION['login']) {
 
     include_once $root . '/includes/tool.valid.inc.php';
 
@@ -222,7 +222,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Tool') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Delete Tool') {
+if (isset($_POST['action']) && $_POST['action'] == 'Delete Tool' && $_SESSION['login']) {
 
     include_once $root . '/includes/db.inc.php';
 
@@ -244,7 +244,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Tool') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Update Image') {
+if (isset($_POST['action']) && $_POST['action'] == 'Update Image' && $_SESSION['login']) {
 
     include_once $root . '/includes/image.valid.inc.php';
 
@@ -312,7 +312,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Image') {
     header( "refresh:5;./admin.php" );
     exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Delete Image') {
+if (isset($_POST['action']) && $_POST['action'] == 'Delete Image' && $_SESSION['login']) {
 
     include_once $root . '/includes/db.inc.php';
 
