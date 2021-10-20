@@ -1,4 +1,5 @@
 <?php
+
 try {
     $sql = 'SELECT id, article, articleDescription, articleLink FROM articles';
     $s = $pdo->query($sql);
@@ -6,6 +7,7 @@ try {
 catch (PDOException $e) {
     $output = 'Error fetching articles table: ' . $e->getMessage();
     require $root . '/components/error.html.php';
+    echo $foot;
     exit();
 }
 $article = $s->fetchAll();
@@ -17,8 +19,10 @@ try {
 catch (PDOException $e) {
     $output = 'Error fetching tools table: ' . $e->getMessage();
     require $root . '/components/error.html.php';
+    echo $foot;
     exit();
 }
+
 $tool = $s->fetchAll();
 
 try {
@@ -28,8 +32,10 @@ try {
 catch (PDOException $e) {
     $output = 'Error fetching tools table: ' . $e->getMessage();
     require $root . '/components/error.html.php';
+    echo $foot;
     exit();
 }
+
 $gallery = $s->fetchAll();
 
 ?>

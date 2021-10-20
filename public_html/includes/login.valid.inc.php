@@ -17,9 +17,9 @@ if (strlen($pass) > 40) {
     $output .= "Error password is longer than 40 chracters. \n\n";
 }
 if (!empty($output)) {
-    $output .= "Please navigate back.";
     include_once  $root . '/components/error.html.php';
     echo $foot;
+    header( "refresh:5;./admin.php" );
     exit();  
 }
 

@@ -11,15 +11,15 @@ if (isset($_POST['action']) && $_POST['action'] == 'Change Login' && $_SESSION['
   
     try {
       $sql = 'UPDATE login
-      SET user=:user, pass=:pass
-      WHERE user=:userwhere';
+              SET user=:user, pass=:pass
+              WHERE user=:userwhere';
       $s = $pdo->prepare($sql);
       $s->bindValue(':user', $user);
       $s->bindValue(':pass', md5($pass . "acms"));
       $s->bindValue(':userwhere', $_SESSION["user"]);
       $s->execute();
     } catch (PDOException $e) {
-      $output = 'Error inserting credentials: ' . $e->getMessage();
+      $output = 'Error updating credentials: ' . $e->getMessage();
       include_once  $root . '/components/error.html.php';
       echo $foot;
       exit();
@@ -36,13 +36,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'Change Login' && $_SESSION['
 if (isset($_POST['action']) && $_POST['action'] == 'Insert Article' && $_SESSION['login']) {
     
     include_once $root . '/includes/article.valid.inc.php';
+
     include_once $root . '/includes/db.inc.php';
 
     try {
         $sql = 'INSERT INTO articles SET
-        article = :a,
-        articleDescription = :ad,
-        articleLink = :al';
+                article = :a,
+                articleDescription = :ad,
+                articleLink = :al';
         $s = $pdo->prepare($sql);
         $s->bindValue(':a', $article);
         $s->bindValue(':ad', $articleDescription);
@@ -50,11 +51,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Article' && $_SESSION
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing update: ' . $e->getMessage();
+        $output = 'Error inserting article: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
     }
+
     $res = 'Inserted article.';
     include_once $root . '/components/form.response.html.php';
     echo $foot; 
@@ -69,9 +71,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool' && $_SESSION['l
 
     try {
         $sql = 'INSERT INTO tools SET
-        tool = :t,
-        toolDescription = :td,
-        toolLink = :tl';
+                tool = :t,
+                toolDescription = :td,
+                toolLink = :tl';
         $s = $pdo->prepare($sql);
         $s->bindValue(':t', $tool);
         $s->bindValue(':td', $toolDescription);
@@ -79,11 +81,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Tool' && $_SESSION['l
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing update: ' . $e->getMessage();
+        $output = 'Error inserting tool: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
     }
+
     $res = 'Inserted tool.'; 
     include_once $root . '/components/form.response.html.php';
     echo $foot; 
@@ -116,8 +119,9 @@ if (isset($_POST['action']) and $_POST['action'] == 'Upload' && $_SESSION['login
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Database error inserting mimetype.' . $e->getMessage();
+        $output = 'Error inserting mimetype: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
+        echo $foot;
         exit();
     }
 
@@ -133,8 +137,9 @@ if (isset($_POST['action']) and $_POST['action'] == 'Upload' && $_SESSION['login
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Database error storing file.' . $e->getMessage();
+        $output = 'Error inserting file: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
+        echo $foot;
         exit();
     }
     
@@ -152,8 +157,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Article' && $_SESSION
 
     try {
         $sql = 'UPDATE articles
-        SET article=:a, articleDescription=:ad, articleLink=:al
-        WHERE id=:id';
+                SET article=:a, articleDescription=:ad, articleLink=:al
+                WHERE id=:id';
         $s = $pdo->prepare($sql);
         $s->bindValue(':a', $article);
         $s->bindValue(':ad', $articleDescription);
@@ -162,11 +167,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Article' && $_SESSION
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing update: ' . $e->getMessage();
+        $output = 'Error updating article: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
     }
+
     $res = 'Updated article.' ;
     include_once $root . '/components/form.response.html.php';
     echo $foot; 
@@ -174,7 +180,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Article' && $_SESSION
     exit();
 }
 if (isset($_POST['action']) && $_POST['action'] == 'Delete Article' && $_SESSION['login']) {
+
     include_once $root . '/includes/db.inc.php';
+
     try {
         $sql = 'DELETE FROM articles WHERE id=:id';
         $s = $pdo->prepare($sql);
@@ -182,11 +190,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Article' && $_SESSION
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing delete: ' . $e->getMessage();
+        $output = 'Error deleting article: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
     }
+
     $res = 'Deleted article.';
     include_once $root . '/components/form.response.html.php';
     echo $foot; 
@@ -201,8 +210,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Tool' && $_SESSION['l
 
     try {
         $sql = 'UPDATE tools
-        SET tool=:t, toolDescription=:td, toolLink=:tl
-        WHERE id=:id';
+                SET tool=:t, toolDescription=:td, toolLink=:tl
+                WHERE id=:id';
         $s = $pdo->prepare($sql);
         $s->bindValue(':t', $tool);
         $s->bindValue(':td', $toolDescription);
@@ -211,11 +220,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Tool' && $_SESSION['l
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing update: ' . $e->getMessage();
+        $output = 'Error updating tool: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
     }
+
     $res = 'Updated tool.';
     include_once $root . '/components/form.response.html.php'; 
     echo $foot;
@@ -233,11 +243,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Tool' && $_SESSION['l
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing delete: ' . $e->getMessage();
+        $output = 'Error deleting tool: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
     }
+    
     $res = 'Deleted tool.';
     include_once $root . '/components/form.response.html.php';
     echo $foot; 
@@ -252,8 +263,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Image' && $_SESSION['
 
     try {
         $sql = 'UPDATE files 
-            SET alt=:alt,caption=:caption
-            WHERE id=:id';
+                SET alt=:alt,caption=:caption
+                WHERE id=:id';
         $s = $pdo->prepare($sql);
         $s->bindValue(':alt', $alt);
         $s->bindValue(':caption', $caption);
@@ -261,7 +272,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Image' && $_SESSION['
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Database error updating file.';
+        $output = 'Error updating file: ';
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
@@ -281,17 +292,18 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Image' && $_SESSION['
             $s->execute();
         }
         catch (PDOException $e) {
-            $output = 'Database error inserting mimetype.' . $e->getMessage();
+            $output = 'Error inserting mimetype: ' . $e->getMessage();
             include_once  $root . '/components/error.html.php';
+            echo $foot;
             exit();
         }
 
         try {
             $sql = 'UPDATE files SET
-            filename = :filename,
-            filedata = :filedata,
-            mimetype_id = (SELECT mimetype_id FROM mimetypes WHERE mimetype = :mimetype )
-            WHERE id = :id';
+                    filename = :filename,
+                    filedata = :filedata,
+                    mimetype_id = (SELECT mimetype_id FROM mimetypes WHERE mimetype = :mimetype )
+                    WHERE id = :id';
             $s = $pdo->prepare($sql);
             $s->bindValue(':filename', $uploadname);
             $s->bindValue(':filedata', $uploaddata);
@@ -300,8 +312,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Image' && $_SESSION['
             $s->execute();
           }
           catch (PDOException $e) {
-            $output = 'Database error storing file.' . $e->getMessage();
+            $output = 'Error updating file: ' . $e->getMessage();
             include_once  $root . '/components/error.html.php';
+            echo $foot;
             exit();
           }
     }
@@ -323,7 +336,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Image' && $_SESSION['
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing delete: ' . $e->getMessage();
+        $output = 'Error deleting file: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
@@ -331,13 +344,13 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Image' && $_SESSION['
 
     try {
         $sql = 'DELETE FROM mimetypes WHERE 
-            mimetype_id NOT IN 
-            (SELECT mimetype_id FROM files)';
+                mimetype_id NOT IN 
+                (SELECT mimetype_id FROM files)';
         $s = $pdo->prepare($sql);
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing delete: ' . $e->getMessage();
+        $output = 'Error deleting mimetypes: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
@@ -374,7 +387,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Login') {
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error selecting credentials.' . $e->getMessage();;
+        $output = 'Error fetching credentials: ' . $e->getMessage();;
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();

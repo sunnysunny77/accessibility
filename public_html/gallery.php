@@ -10,7 +10,7 @@ try {
     $result = $pdo->query($sql);
 }
 catch (PDOException $e) {
-    $output = 'Error selecting files.' . $e->getMessage();;
+    $output = 'Error fetching files: ' . $e->getMessage();;
     include_once  $root . '/components/error.html.php';
     echo $foot;
     exit();
