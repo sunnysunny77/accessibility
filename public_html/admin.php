@@ -12,7 +12,20 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Image') {
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing update: ' . $e->getMessage();
+        $output = 'Error performing delete: ' . $e->getMessage();
+        include_once  $root . '/components/error.html.php';
+        echo $foot;
+        exit();
+    }
+    try {
+        $sql = 'DELETE FROM mimetypes WHERE 
+            mimetype_id NOT IN 
+            (SELECT mimetype_id FROM files)';
+        $s = $pdo->prepare($sql);
+        $s->execute();
+    }
+    catch (PDOException $e) {
+        $output = 'Error performing delete: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
@@ -32,7 +45,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Tool') {
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing update: ' . $e->getMessage();
+        $output = 'Error performing delete: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
@@ -52,7 +65,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Article') {
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error performing update: ' . $e->getMessage();
+        $output = 'Error performing delete: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
