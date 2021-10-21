@@ -98,6 +98,7 @@ if (isset($_POST['action']) and $_POST['action'] == 'Upload' && $_SESSION['login
     include_once $root . '/includes/image.valid.inc.php';
 
     if (!is_uploaded_file($_FILES['upload']['tmp_name'])) {
+        
         $output = 'There was no file uploaded.';
         include_once  $root . '/components/error.html.php';
         echo $foot;
@@ -126,8 +127,8 @@ if (isset($_POST['action']) and $_POST['action'] == 'Upload' && $_SESSION['login
     }
 
     try {
-    $sql = 'INSERT INTO files (filename,alt,caption,filedata,mimetype_id) 
-            VALUES (:filename,:alt,:caption,:filedata,(SELECT mimetype_id FROM mimetypes WHERE mimetype = :mimetype))';
+        $sql = 'INSERT INTO files (filename,alt,caption,filedata,mimetype_id) 
+                VALUES (:filename,:alt,:caption,:filedata,(SELECT mimetype_id FROM mimetypes WHERE mimetype = :mimetype))';
         $s = $pdo->prepare($sql);
         $s->bindValue(':filename', $uploadname); 
         $s->bindValue(':alt', $alt);
@@ -272,13 +273,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Image' && $_SESSION['
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error updating file: ';
+        $output = 'Error updating file: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
     }
 
     if (is_uploaded_file($_FILES['upload']['tmp_name'])) {
+
         $uploadfile = $_FILES['upload']['tmp_name'];
         $uploadname = $_FILES['upload']['name'];
         $uploadtype = $_FILES['upload']['type'];
@@ -369,7 +371,6 @@ if ($_SESSION['login'] && !isset($_POST['action'])) {
     include_once $root . '/includes/resources.inc.php';
 
     include_once $root . '/components/admin.html.php';
-
     echo $foot;  
     exit();   
 }
@@ -392,6 +393,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Login') {
         echo $foot;
         exit();
     }
+
     if ($s->rowCount() == 0) {
         $output = "Incorrect credentials.";
         include_once  $root . '/components/error.html.php';
@@ -399,10 +401,13 @@ if (isset($_POST['action']) && $_POST['action'] == 'Login') {
         header( "refresh:5;./admin.php" );
         exit();
     }
+
     $result = $s->fetch();
     $_SESSION['login'] = true;
     $_SESSION['user'] = $result['user'];
+
     include_once $root . '/includes/resources.inc.php';
+
     include_once $root . '/components/admin.html.php';
     echo $foot;  
     exit(); 
@@ -410,7 +415,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'Login') {
 if (!$_SESSION['login']) {
 
     echo file_get_contents($root . '/components/admin.form.html');
-    
     echo $foot;  
     exit(); 
 }

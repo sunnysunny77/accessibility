@@ -20,6 +20,7 @@ if(isset($_GET['image_id'])) {
     }
     
     $file = $s->fetch();
+    
     if (!$file) {
         http_response_code(404);
         exit();

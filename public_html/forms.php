@@ -43,18 +43,21 @@ if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
   Contact preference: ".$contactpreference."
   Message: ".$message;
   $contactus  = wordwrap($contactus ,70);
+
   $mail = mail($to_email,$subject,$contactus);
   if (!$mail) {
     $res = "Error sending \xf0\x9f\x93\xa7";
   } else {
     $res = "Thanks sent to \xf0\x9f\x93\xa7";
   }
+  
   include_once $root . '/components/form.response.html.php';
   echo $foot; 
   header( "refresh:5;./index.php" ); 
   exit();
 } 
 if (!isset($_POST['action'])){
+  
   echo file_get_contents($root . '/components/forms.html');
   echo $foot;
   exit(); 

@@ -30,7 +30,7 @@ try {
     $s = $pdo->query($sql);
 }
 catch (PDOException $e) {
-    $output = 'Error fetching tools table: ' . $e->getMessage();
+    $output = 'Error fetching files: ' . $e->getMessage();
     require $root . '/components/error.html.php';
     echo $foot;
     exit();
