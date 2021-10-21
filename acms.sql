@@ -4,7 +4,7 @@ USE acms;
 
 CREATE TABLE login ( id SMALLINT UNSIGNED DEFAULT 1, user VARCHAR(40) NOT NULL UNIQUE, pass VARCHAR(255) NOT NULL, PRIMARY KEY (id) ); 
 
-INSERT INTO login (user, pass) VALUES ("Dan",MD5('passwordacms'));
+INSERT INTO login (user, pass) VALUES ("Dan",MD5('passwordA1acms'));
 
 CREATE TABLE articles ( id SMALLINT NOT NULL AUTO_INCREMENT, article VARCHAR(40) NOT NULL UNIQUE, articleDescription TEXT NOT NULL, articleLink VARCHAR(255) NOT NULL UNIQUE, PRIMARY KEY (id)); 
 

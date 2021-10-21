@@ -388,7 +388,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Login') {
         $s->execute();
     }
     catch (PDOException $e) {
-        $output = 'Error fetching credentials: ' . $e->getMessage();;
+        $output = 'Error fetching credentials: ' . $e->getMessage();
         include_once  $root . '/components/error.html.php';
         echo $foot;
         exit();
