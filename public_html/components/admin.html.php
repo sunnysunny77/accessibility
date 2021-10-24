@@ -1,6 +1,6 @@
-<?php include_once $root . '/includes/helpers.inc.php'; ?>
+<?php include_once $root . "/includes/helpers.inc.php"; ?>
 <link href="css/admin.css" rel="stylesheet" type="text/css" />
-<h2>Welcome <?php htmlout($_SESSION['user']); ?></h2>
+<h2>Welcome <?php htmlout($_SESSION["user"]); ?></h2>
 <?php
 echo "<h3>Change admin login</h3>";
 echo "<form action=\"?\" method=\"post\">";
@@ -8,7 +8,7 @@ echo "<fieldset>";
 echo "<legend>Change</legend>";
 echo "<label for=\"user\"> User: </label>";
 echo "<input autocomplete=\"on\" id=\"user\" type=\"text\" name=\"user\" value=\"";
-htmlout($_SESSION['user']);
+htmlout($_SESSION["user"]);
 echo"\"/>";
 echo "<label for=\"pass\">Password:</label>";
 echo "<input autocomplete=\"on\" type=\"password\" name=\"pass\" id=\"pass\" />";
@@ -87,36 +87,36 @@ foreach ($article as $value) {
     echo "<fieldset>";
     echo "<legend>Edit</legend>";
     echo "<input type=\"hidden\" name=\"id\"  value=\"";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\"/>";
     echo "<label for=\"article";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\">Article</label>";
     echo "<br>";
     echo "<textarea id=\"article";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\" name=\"article\">";
-    htmlout($value['article']);
+    htmlout($value["article"]);
     echo "</textarea>";
     echo "<br>";
     echo "<label for=\"articleDescription";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\">Article Description</label>";
     echo "<br>";
     echo "<textarea rows=\"10\" id=\"articleDescription";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\" name=\"articleDescription\">";
-    htmlout($value['articleDescription']);
+    htmlout($value["articleDescription"]);
     echo "</textarea>";
     echo "<br>";
     echo "<label for=\"articleLink";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\">Article Link</label>";
     echo "<br>";
     echo "<textarea id=\"articleLink";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\" name=\"articleLink\">";
-    htmlout($value['articleLink']);
+    htmlout($value["articleLink"]);
     echo "</textarea>";
     echo "<br>";
     echo "<br>";
@@ -139,36 +139,36 @@ foreach ($tool as $value) {
     echo "<fieldset>";
     echo "<legend>Edit</legend>";
     echo "<input type=\"hidden\" name=\"id\"  value=\"";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\"/>";
     echo "<label for=\"tool";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\">Tool</label>";
     echo "<br>";
     echo "<textarea id=\"tool";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\" name=\"tool\">";
-    htmlout($value['tool']);
+    htmlout($value["tool"]);
     echo "</textarea>";
     echo "<br>";
     echo "<label for=\"toolDescription";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\">Tool Description</label>";
     echo "<br>";
     echo "<textarea rows=\"10\" id=\"toolDescription";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\" name=\"toolDescription\">";
-    htmlout($value['toolDescription']);
+    htmlout($value["toolDescription"]);
     echo "</textarea>";
     echo "<br>";
     echo "<label for=\"toolLink";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\">Tool Link</label>";
     echo "<br>";
     echo "<textarea id=\"toolLink";
-    htmlout($value['id']);
+    htmlout($value["id"]);
     echo "\" name=\"toolLink\">";
-    htmlout($value['toolLink']);
+    htmlout($value["toolLink"]);
     echo "</textarea>";
     echo "<br>";
     echo "<br>";
@@ -190,37 +190,37 @@ foreach ($gallery as $value) {
     echo "<form action=\"?\" method=\"post\" enctype=\"multipart/form-data\">";
         echo "<fieldset>";
             echo"<legend> Image: ";
-            htmlout($value['id']);
+            htmlout($value["id"]);
             echo"</legend>";
             echo "<input type=\"hidden\" name=\"id\"  value=\"";
-            htmlout($value['id']);
+            htmlout($value["id"]);
             echo "\"/>";
             echo "<label for=\"upload";
-            htmlout($value['id']);
+            htmlout($value["id"]);
             echo "\">Upload File:</label>";
             echo "<br>";
             echo "<input type=\"file\" id=\"upload";
-            htmlout($value['id']);
+            htmlout($value["id"]);
             echo "\" name=\"upload\" />";
             echo "<br>";
             echo "<label for=\"alt";
-            htmlout($value['id']);
+            htmlout($value["id"]);
             echo "\">Alternative text:</label>";
             echo "<br>";
             echo "<input type=\"text\" id=\"alt";
-            htmlout($value['id']);
+            htmlout($value["id"]);
             echo "\" name=\"alt\" value=\"";
-            htmlout($value['alt']);
+            htmlout($value["alt"]);
             echo "\" />";
             echo "<br>";
             echo "<label for=\"caption";
-            htmlout($value['id']);
+            htmlout($value["id"]);
             echo "\">Caption:</label>";
             echo "<br>";
             echo "<input type=\"text\" id=\"caption";
-            htmlout($value['id']);
+            htmlout($value["id"]);
             echo "\" name=\"caption\" value=\"";
-            htmlout($value['caption']);
+            htmlout($value["caption"]);
             echo "\" />";
             echo "<br>";
             echo "<br>";
@@ -236,7 +236,6 @@ foreach ($gallery as $value) {
     echo "<br>";
     echo "<br>";
 }
-
 ?>
 <br>
 <br>

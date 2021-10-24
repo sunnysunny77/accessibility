@@ -1,4 +1,4 @@
-<?php include_once $root . '/includes/helpers.inc.php'; ?>
+<?php include_once $root . "/includes/helpers.inc.php"; ?>
 <link href="css/resources.css" rel="stylesheet" type="text/css" />
 <?php 
 echo "<table>";
@@ -13,18 +13,18 @@ echo "<table>";
   foreach ($article as $value) {
     echo "<tr>";
       echo "<td headers=\"article\">";
-      htmlout($value['article']);
+      htmlout($value["article"]);
       echo "</td>";
       echo "<td headers=\"articleDescription\">";
-      htmlout($value['articleDescription']); 
+      htmlout($value["articleDescription"]); 
       echo "</td>";
       echo "<td headers=\"articleLink\">";
       echo "<a href=\"";
-      htmlout($value['articleLink']); 
+      htmlout($value["articleLink"]); 
       echo "\" rel=\"external\" target=\"";    
-      htmlout($value['article']);    
+      htmlout($value["article"]);    
       echo "\">";
-      htmlout($value['article']);
+      htmlout($value["article"]);
       echo "</a>";
       echo "</td>";
     echo "</tr>";

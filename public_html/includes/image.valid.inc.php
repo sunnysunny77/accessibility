@@ -1,7 +1,7 @@
 <?php
 
-$alt = $_POST['alt'];
-$caption = $_POST['caption'];
+$alt = $_POST["alt"];
+$caption = $_POST["caption"];
 
 $output = ""; 
 if (empty($alt) || empty($caption)) {
@@ -15,7 +15,7 @@ if (strlen($caption) > 255) {
 }
 if (!empty($output)) {
     $output .= "Please navigate back.";
-    include_once  $root . '/components/error.html.php';
+    include_once  $root . "/components/error.html.php";
     echo $foot;
     exit();  
 }

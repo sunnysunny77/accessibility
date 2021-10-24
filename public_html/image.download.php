@@ -1,17 +1,17 @@
 <?php
 
-$root = $_SERVER['DOCUMENT_ROOT'];
+$root = $_SERVER["DOCUMENT_ROOT"] . "/daniel";
 
-if(isset($_GET['image_id'])) {
+if(isset($_GET["image_id"])) {
 
-    include_once $root . '/includes/db.inc.php';
+    include_once $root . "/includes/db.inc.php";
     
     try { 
-        $sql = 'SELECT filename, mimetype, filedata
+        $sql = "SELECT filename, mimetype, filedata
                 FROM files INNER JOIN mimetypes ON mimetypes.mimetype_id = files.mimetype_id
-                WHERE id=:id';
+                WHERE id=:id";
          $s = $pdo->prepare($sql);
-         $s->bindValue(':id', $_GET['image_id']);
+         $s->bindValue(":id", $_GET["image_id"]);
          $s->execute();
     }
     catch (PDOException $e) {
@@ -26,12 +26,12 @@ if(isset($_GET['image_id'])) {
         exit();
     }
     
-    $filename = $file['filename'];
-    $mimetype = $file['mimetype'];
-    $filedata = $file['filedata'];
-    $disposition = 'inline';
+    $filename = $file["filename"];
+    $mimetype = $file["mimetype"];
+    $filedata = $file["filedata"];
+    $disposition = "inline";
     
-    header('Content-length: ' . strlen($filedata));
+    header("Content-length: " . strlen($filedata));
     header("Content-type: $mimetype");
     header("Content-disposition: $disposition; filename=$filename");
     

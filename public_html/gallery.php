@@ -1,24 +1,24 @@
 <?php 
-$root = $_SERVER['DOCUMENT_ROOT'];
-include_once $root . '/template/template.php';
+$root = $_SERVER["DOCUMENT_ROOT"] . "/daniel";
+include_once $root . "/template/template.php";
 echo $head;
 
-include_once $root . '/includes/db.inc.php';
+include_once $root . "/includes/db.inc.php";
 
 try {
-    $sql = 'SELECT id, alt, caption FROM files';
-    $result = $pdo->query($sql);
+    $sql = "SELECT id, alt, caption FROM files";
+    $s = $pdo->query($sql);
 }
 catch (PDOException $e) {
-    $output = 'Error fetching files: ' . $e->getMessage();
-    include_once  $root . '/components/error.html.php';
+    $output = "Error fetching files: " . $e->getMessage();
+    include_once  $root . "/components/error.html.php";
     echo $foot;
     exit();
 }
   
-$gallery = $result->fetchAll();
+$gallery = $s->fetchAll();
 
-include_once $root . '/components/gallery.html.php';
+include_once $root . "/components/gallery.html.php";
 echo $foot;
 exit();
 ?>

@@ -1,8 +1,8 @@
 <?php
 
-$article = $_POST['article'];
-$articleDescription = $_POST['articleDescription'];
-$articleLink = $_POST['articleLink'];
+$article = $_POST["article"];
+$articleDescription = $_POST["articleDescription"];
+$articleLink = $_POST["articleLink"];
 
 $output = ""; 
 if (empty($article) || empty($articleDescription) || empty($articleLink)) {
@@ -19,7 +19,7 @@ if (!preg_match("/^(https?:\/\/)/", $articleLink )) {
 }
 if (!empty($output)) {
     $output .= "Please navigate back.";
-    include_once  $root . '/components/error.html.php';
+    include_once  $root . "/components/error.html.php";
     echo $foot;
     exit();  
 }

@@ -1,13 +1,13 @@
 <?php
 
-$user = $_POST['user'];
-$pass = $_POST['pass'];
+$user = $_POST["user"];
+$pass = $_POST["pass"];
 
 $output = "";
 if (empty($user) || empty($pass)) {
     $output .= "Error please fill out all fields. \n\n";
 }
-if (preg_match('/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/', $user)) {
+if (preg_match("/[#$%^&*()+=\-\[\]\';,.\/{}|\":<>?~\\\\]/", $user)) {
     $output .= "Error username includes special characters. \n\n";
 }
 if (strlen($user) > 40) {
@@ -29,7 +29,7 @@ if (strlen($pass) < 8) {
     $output .= "Error password is less than 8 chracters. \n\n ";
 }
 if (!empty($output)) {
-    include_once  $root . '/components/error.html.php';
+    include_once  $root . "/components/error.html.php";
     echo $foot;
     header( "refresh:5;./admin.php" );
     exit();  

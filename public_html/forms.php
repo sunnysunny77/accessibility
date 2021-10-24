@@ -1,14 +1,14 @@
 <?php 
-$root = $_SERVER['DOCUMENT_ROOT'];
-include_once $root . '/template/template.php';
+$root = $_SERVER["DOCUMENT_ROOT"] . "/daniel";
+include_once $root . "/template/template.php";
 echo $head;
-if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
+if (isset($_POST["action"]) && $_POST["action"] == "Send Request") {
   
-  $name = $_REQUEST["name"];
-  $phone = $_REQUEST["phone"];
-  $email = $_REQUEST["email"];
-  $message = $_REQUEST["message"];
-  $contactpreference = $_REQUEST["contactpreference"];
+  $name = $_POST["name"];
+  $phone = $_POST["phone"];
+  $email = $_POST["email"];
+  $message = $_POST["message"];
+  $contactpreference = $_POST["contactpreference"];
   
   $output = ""; 
   if (empty($contactpreference)) {
@@ -28,7 +28,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
   }
   if (!empty($output)) {
     $output .= "Please navigate back.";
-    include_once  $root . '/components/error.html.php';
+    include_once  $root . "/components/error.html.php";
     echo $foot;
     exit();  
   }
@@ -51,14 +51,14 @@ if (isset($_POST['action']) && $_POST['action'] == 'Send Request') {
     $res = "Thanks sent to \xf0\x9f\x93\xa7";
   }
   
-  include_once $root . '/components/form.response.html.php';
+  include_once $root . "/components/form.response.html.php";
   echo $foot; 
   header( "refresh:5;./index.php" ); 
   exit();
 } 
-if (!isset($_POST['action'])){
+if (!isset($_POST["action"])){
   
-  echo file_get_contents($root . '/components/forms.html');
+  echo file_get_contents($root . "/components/forms.html");
   echo $foot;
   exit(); 
 }

@@ -1,8 +1,8 @@
 <?php
 
-  $tool = $_POST['tool'];
-  $toolDescription = $_POST['toolDescription'];
-  $toolLink = $_POST['toolLink'];
+  $tool = $_POST["tool"];
+  $toolDescription = $_POST["toolDescription"];
+  $toolLink = $_POST["toolLink"];
 
   $output = ""; 
   if (empty($tool) || empty($toolDescription) || empty($toolLink)) {
@@ -19,7 +19,7 @@
   }
   if (!empty($output)) {
       $output .= "Please navigate back.";
-      include_once  $root . '/components/error.html.php';
+      include_once  $root . "/components/error.html.php";
       echo $foot;
       exit();  
   }
