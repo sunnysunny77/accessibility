@@ -1,5 +1,5 @@
 <?php 
-$root = $_SERVER["DOCUMENT_ROOT"] . "/daniel";
+$root = $_SERVER["DOCUMENT_ROOT"];
 include_once $root . "/template/template.php";
 echo $head;
 

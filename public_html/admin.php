@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$root = $_SERVER["DOCUMENT_ROOT"] . "/daniel";
+$root = $_SERVER["DOCUMENT_ROOT"];
 include_once $root . "/template/template.php";
 echo $head;
 if (isset($_POST["action"]) && $_POST["action"] == "Change Login" && $_SESSION["login"]) {

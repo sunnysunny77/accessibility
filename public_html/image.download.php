@@ -1,6 +1,6 @@
 <?php
 
-$root = $_SERVER["DOCUMENT_ROOT"] . "/daniel";
+$root = $_SERVER["DOCUMENT_ROOT"];
 
 if(isset($_GET["image_id"])) {
 
