@@ -53,7 +53,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "Send Request") {
   
   include_once $root . "/components/form.response.html.php";
   echo $foot; 
-  header( "refresh:5;./index.php" ); 
+  header( "refresh:5;./" ); 
   exit();
 } 
 if (!isset($_POST["action"])){
