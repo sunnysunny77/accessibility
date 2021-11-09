@@ -1,10 +1,7 @@
 <?php
 
-include_once $_SERVER["DOCUMENT_ROOT"] . "/../keys.php"; 
-
-try
-{
-  $pdo = new PDO("mysql:host=localhost;dbname=acms", "root", $db);
+try {
+  $pdo = new PDO("mysql:host=localhost;dbname=acms", "root", "");
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $pdo->exec("SET NAMES 'utf8'");
 }
@@ -13,5 +10,4 @@ catch (PDOException $e) {
   include_once $root . "/components/error.html.php";
   exit();
 }
-
 ?>

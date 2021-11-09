@@ -33,7 +33,7 @@ if (isset($_POST["action"]) && $_POST["action"] == "Send Request") {
     exit();  
   }
   
-  $to_email = "@gmail.com";
+  $to_email = "shlooby07@gmail.com";
   $subject = "New Contact Us Message";
   $contactus = "
   You have a message from the contact us page on your website:
