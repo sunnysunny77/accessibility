@@ -1,0 +1,68 @@
+<link href="../../css/admin.css" rel="stylesheet" type="text/css" />
+<h3>Add Resource Articles</h3>
+<form action="?" method="post" >
+<fieldset>
+    <legend>Add New Resource Article</legend>
+    <label for="newarticle">Article</label>
+    <br>
+    <textarea id="newarticle" name="article"></textarea>
+    <br>
+    <label for="newarticleDescription">Article Description</label>
+    <br>
+    <textarea rows="10" id="newarticleDescription" name="articleDescription"></textarea>
+    <br>
+    <label for="newarticleLink">Article Link</label>
+    <br>
+    <textarea id="newarticleLink" name="articleLink"></textarea>
+    <br>
+    <br>
+    <input type="submit" name="action"  value="Insert Article" />
+    <br>
+</fieldset>
+</form>
+<h3>Add New Resource Tools</h3>
+<form action="?" method="post" >
+<fieldset>
+    <legend>Insert new Tool</legend>
+    <label for="newtool">Tool</label>
+    <br>
+    <textarea id="newtool" name="tool"></textarea>
+    <br>
+    <label for="newtoolDescription">Tool Description</label>
+    <br>
+    <textarea rows="10" id="newtoolDescription" name="toolDescription"></textarea>
+    <br>
+    <label for="newtoolLink">Tool Link</label>
+    <br>
+    <textarea id="newtoolLink" name="toolLink"></textarea>
+    <br>
+    <br>
+    <input type="submit" name="action"  value="Insert Tool" />
+    <br>
+</fieldset>
+</form>
+<h3>ADD New Gallery Image</h3>
+<form action="?" method="post" enctype="multipart/form-data">
+<fieldset>
+    <legend>Upload</legend>
+    <label for="upload">Upload File:</label>
+    <br>
+    <input type="file" id="upload" name="upload" />
+    <br>
+    <label for="alt">Alternative text:</label>
+    <br>
+    <input type="text" id="alt" name="alt" />
+    <br>
+    <label for="caption">Caption:</label>
+    <br>
+    <input type="text" id="caption" name="caption" />
+    <br>
+    <br>
+    <input type="submit" name="action" value="Upload" />
+    <br>
+    <br>
+</fieldset>
+</form>
+<br>
+<br>
+<a id="log" href="../../logout.php">Log Out</a>

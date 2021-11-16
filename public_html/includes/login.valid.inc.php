@@ -31,7 +31,7 @@ if (strlen($pass) < 8) {
 if (!empty($output)) {
     include_once  $root . "/components/error.html.php";
     echo $foot;
-    header( "refresh:5;./admin.php" );
+    header( "refresh:5;../admin/" );
     exit();  
 }
 

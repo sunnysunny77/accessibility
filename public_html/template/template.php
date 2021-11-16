@@ -1,10 +1,18 @@
 <?php
 $location = "Home";
 $dir = "./";
+$root = $_SERVER["DOCUMENT_ROOT"];
+$dirname = dirname($_SERVER['SCRIPT_FILENAME']); 
 $host = ucfirst(basename($_SERVER["PHP_SELF"], ".php"));
-if ($host != "Index") {
+if ($dirname == $root && $host != "Index") {
     $location = $host;
-}
+} else if ($dirname != $root) {
+    $location = "Admin";
+    $dir = "../";
+    if ($dirname != $root . "/admin") {
+        $dir = "../../";
+    }
+} 
 $head = "
     <!DOCTYPE html>
     <html lang=\"en\">
@@ -14,13 +22,13 @@ $head = "
             <meta name=\"author\" content=\"D.C\">
             <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
             <title> Accessibility & PHP CMS Assigment - $location </title>
-            <link href=\"./css/styles.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"${dir}css/styles.css\" rel=\"stylesheet\" type=\"text/css\">
         </head>
         <body>
             <header>
                 <h1>Accessibility<span>:</span>$location</h1>
                 <img
-                src=\"./images/header.png\"
+                src=\"${dir}images/header.png\"
                 alt=\"Accessibility Logo\"
                 width=\"125\"
                 height=\"125\"
@@ -29,16 +37,16 @@ $head = "
             <a id=\"skip\" href=\"#main\" accesskey=\"S\"> Skip navigation </a>
             <nav>
             <ul>
-                <li><a href=\"./index.php\" accesskey=\"1\"> Home </a></li>
-                <li><a href=\"./about.php\" accesskey=\"2\"> About </a></li>
-                <li><a href=\"./media.php\" accesskey=\"3\"> Media </a></li>
-                <li><a href=\"./gallery.php\" accesskey=\"4\"> Gallery </a></li>
-                <li><a href=\"./forms.php\" accesskey=\"5\"> Forms </a></li>
-                <li><a href=\"./resources.php\" accesskey=\"6\"> Resources </a></li>
+                <li><a href=\"${dir}\" accesskey=\"1\"> Home </a></li>
+                <li><a href=\"${dir}about.php\" accesskey=\"2\"> About </a></li>
+                <li><a href=\"${dir}media.php\" accesskey=\"3\"> Media </a></li>
+                <li><a href=\"${dir}gallery.php\" accesskey=\"4\"> Gallery </a></li>
+                <li><a href=\"${dir}forms.php\" accesskey=\"5\"> Forms </a></li>
+                <li><a href=\"${dir}resources.php\" accesskey=\"6\"> Resources </a></li>
                 <li>
-                    <a href=\"./admin.php\" accesskey=\"7\">  
+                    <a href=\"${dir}admin/\" accesskey=\"7\">  
                         <img
-                        src=\"./images/login.png\"
+                        src=\"${dir}images/login.png\"
                         alt=\"Admin\"
                         width=\"22\"
                         height=\"22\"
@@ -52,22 +60,22 @@ $foot = "
             </main>
             <footer>
                 <img
-                src=\"./images/footer.png\"
+                src=\"${dir}images/footer.png\"
                 alt=\"Human Being Icon\"
                 width=\"75\"
                 height=\"75\"
                 />
                 <ul>
-                    <li><a href=\"./index.php\"> Home </a></li>
-                    <li><a href=\"./about.php\"> About </a></li>
-                    <li><a href=\"./media.php\"> Media </a></li>
-                    <li><a href=\"./gallery.php\"> Gallery </a></li>
-                    <li><a href=\"./forms.php\"> Forms </a></li>
-                    <li><a href=\"./resources.php\"> Resources </a></li>
+                    <li><a href=\"${dir}\"> Home </a></li>
+                    <li><a href=\"${dir}about.php\"> About </a></li>
+                    <li><a href=\"${dir}media.php\"> Media </a></li>
+                    <li><a href=\"${dir}gallery.php\"> Gallery </a></li>
+                    <li><a href=\"${dir}forms.php\"> Forms </a></li>
+                    <li><a href=\"${dir}resources.php\"> Resources </a></li>
                     <li>
-                    <a href=\"./admin.php\">  
+                    <a href=\"${dir}admin/\">  
                         <img
-                        src=\"./images/login.png\"
+                        src=\"${dir}images/login.png\"
                         alt=\"Admin\"
                         width=\"22\"
                         height=\"22\"
