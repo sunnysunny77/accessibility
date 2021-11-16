@@ -74,7 +74,7 @@ if ($_SESSION["login"] && !isset($_POST["action"])) {
     
     $article = $s->fetchAll();
 
-    include_once $root . "/components/edit-articles.html.php";
+    include_once $root . "/components/edit.articles.html.php";
     echo $foot;  
     exit();   
 }

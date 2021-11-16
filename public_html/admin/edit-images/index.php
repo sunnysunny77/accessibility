@@ -128,7 +128,7 @@ if ($_SESSION["login"] && !isset($_POST["action"])) {
     
     $gallery = $s->fetchAll();  
 
-    include_once $root . "/components/edit-images.html.php";
+    include_once $root . "/components/edit.images.html.php";
     echo $foot;  
     exit();   
 }

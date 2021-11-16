@@ -73,7 +73,7 @@ if ($_SESSION["login"] && !isset($_POST["action"])) {
 
     $tool = $s->fetchAll();
 
-    include_once $root . "/components/edit-tools.html.php";
+    include_once $root . "/components/edit.tools.html.php";
     echo $foot;  
     exit();   
 }

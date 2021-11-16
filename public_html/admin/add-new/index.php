@@ -122,7 +122,7 @@ if (isset($_POST["action"]) and $_POST["action"] == "Upload" && $_SESSION["login
 }
 if ($_SESSION["login"] && !isset($_POST["action"])) {
 
-    echo file_get_contents($root . "/components/add-new.html");
+    echo file_get_contents($root . "/components/add.new.html");
     echo $foot;  
     exit();   
 }
