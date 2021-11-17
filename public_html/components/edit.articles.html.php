@@ -1,7 +1,6 @@
 <?php include_once $root . "/includes/helpers.inc.php"; ?>
 <link href="../../css/admin.css" rel="stylesheet" type="text/css" />
 <h2>Welcome <?php htmlout($_SESSION["user"]); ?></h2>
-
 <?php
 echo "<h3>Edit Resource Atricles</h3>";
 foreach ($article as $value) {
@@ -53,7 +52,6 @@ foreach ($article as $value) {
     echo "</form>";
     echo "<br>";
 }
-
 ?>
 <br>
 <br>

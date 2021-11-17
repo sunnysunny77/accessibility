@@ -10,4 +10,5 @@ catch (PDOException $e) {
   include_once $root . "/components/error.html.php";
   exit();
 }
+
 ?>

@@ -79,7 +79,7 @@ if ($_SESSION["login"] && !isset($_POST["action"])) {
 }
 if (!$_SESSION["login"]) {
 
-    header( "Location: ../../admin/" ); 
+    header( "Location:../../admin/" ); 
     exit(); 
 }
 ?>
