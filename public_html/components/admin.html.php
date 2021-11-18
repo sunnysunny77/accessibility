@@ -16,7 +16,7 @@
 <br>
 <br>
 <?php
-echo "<h3>Change admin login</h3>";
+echo "<h3>Change Admin Login</h3>";
 echo "<form action=\"?\" method=\"post\">";
 echo "<fieldset>";
 echo "<legend>Change</legend>";
