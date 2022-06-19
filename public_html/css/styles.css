@@ -85,7 +85,7 @@ nav img, footer li img {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 74vh;
   padding: 2.5% 5%;
   background-image: url("../images/main.jpg");
   background-size: 100% 100%;
