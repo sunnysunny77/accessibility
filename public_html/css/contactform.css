@@ -4,7 +4,7 @@
 input, textarea {
   display: block;
   width: 95%;
-  margin: 1% auto;
+  margin: 1% 10px;
 }
 
 input[type="radio"] {
@@ -28,4 +28,21 @@ input[type="submit"] {
   width: unset;
   padding: 5px 10px;
   margin: 2% auto 15% auto;
+}
+
+form div {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.wrap {
+  width: 48.7%;
+  display: inline;
+}
+
+@media only screen and (max-width: 720px) {
+  .wrap {
+    width: 100%;
+  }
 }
